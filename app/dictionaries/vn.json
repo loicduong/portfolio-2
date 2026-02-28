@@ -1,0 +1,47 @@
+{
+  "nav": {
+    "projects": "DỰ ÁN",
+    "experience": "KINH NGHIỆM",
+    "skills": "KỸ NĂNG",
+    "library": "THƯ VIỆN",
+    "viewCv": "XEM CV",
+    "preparing": "ĐANG CHUẨN BỊ...",
+    "ready": "SẴN SÀNG"
+  },
+  "hero": {
+    "title": "Năm Giáp Ngọ: Uốn Cong Thế Giới Web",
+    "subtitle": "Một Nhà Phát Triển Frontend kết hợp năng lượng động lực với các thử nghiệm CSS táo bạo. Tạo ra những trải nghiệm kỹ thuật số chuyển động có mục đích và sức mạnh.",
+    "explore": "KHÁM PHÁ CÁC DỰ ÁN",
+    "download": "TẢI CV",
+    "generating": "ĐANG TẠO...",
+    "downloaded": "ĐÃ TẢI XUỐNG"
+  },
+  "projects": {
+    "title": "Chuồng Ngựa",
+    "subtitle": "Nơi những ý tưởng thô được chăm sóc thành những chiến mã kỹ thuật số hiệu suất cao. Mỗi dự án là một minh chứng cho sự linh hoạt kỹ thuật và sự thống trị thị giác.",
+    "selected": "Tác Phẩm Tiêu Biểu",
+    "recent": "MỚI NHẤT",
+    "az": "A-Z",
+    "viewAll": "XEM TẤT CẢ CHIẾN MÃ",
+    "showLess": "THU GỌN",
+    "demo": "XEM DEMO",
+    "source": "MÃ NGUỒN",
+    "search": "Tìm kiếm dự án..."
+  },
+  "pedigree": {
+    "title": "Gia Phả",
+    "arsenal": "KHO VŨ KHÍ CỐT LÕI",
+    "kinetic": "ĐỘNG LỰC & SÁNG TẠO",
+    "tools": "CÔNG CỤ HỖ TRỢ"
+  },
+  "archive": {
+    "title": "Kho Lưu Trữ",
+    "subtitle": "Ghi lại nhịp điệu của chuyển động qua ống kính 35mm. Một cuộn cảm hứng liên tục.",
+    "keepCharging": "Tiếp Tục Tiến Lên"
+  },
+  "footer": {
+    "title": "Sẵn Sàng Bắt Đầu?",
+    "subtitle": "Sẵn sàng cho các hợp tác chọn lọc và các dự án kỹ thuật sáng tạo đầy thử thách.",
+    "talk": "LIÊN HỆ NGAY"
+  }
+}

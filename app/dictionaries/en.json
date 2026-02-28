@@ -1,0 +1,47 @@
+{
+  "nav": {
+    "projects": "PROJECTS",
+    "experience": "EXPERIENCE",
+    "skills": "SKILLS",
+    "library": "LIBRARY",
+    "viewCv": "VIEW CV",
+    "preparing": "PREPARING...",
+    "ready": "READY"
+  },
+  "hero": {
+    "title": "Year of the Horse: Bending the Web",
+    "subtitle": "A Frontend Developer fusing kinetic energy with bold CSS experimentation. Crafting digital experiences that move with purpose and power.",
+    "explore": "EXPLORE THE STABLE",
+    "download": "DOWNLOAD CV",
+    "generating": "GENERATING...",
+    "downloaded": "DOWNLOADED"
+  },
+  "projects": {
+    "title": "The Stable",
+    "subtitle": "Where raw ideas are groomed into high-performance digital thoroughbreds. Each project is a testament to technical agility and visual dominance.",
+    "selected": "Selected Works",
+    "recent": "RECENT",
+    "az": "A-Z",
+    "viewAll": "VIEW ALL STALLIONS",
+    "showLess": "SHOW LESS",
+    "demo": "LIVE DEMO",
+    "source": "SOURCE CODE",
+    "search": "Search projects..."
+  },
+  "pedigree": {
+    "title": "Pedigree",
+    "arsenal": "CORE ARSENAL",
+    "kinetic": "KINETIC & CREATIVE",
+    "tools": "STABLE TOOLS"
+  },
+  "archive": {
+    "title": "The Archive",
+    "subtitle": "Capturing the rhythm of movement through a 35mm lens. A continuous scroll of inspiration.",
+    "keepCharging": "Keep Charging"
+  },
+  "footer": {
+    "title": "Ready to Ride?",
+    "subtitle": "Available for selective collaborations and high-stakes creative engineering projects.",
+    "talk": "LET'S TALK"
+  }
+}

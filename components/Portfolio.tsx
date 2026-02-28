@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useParams, useRouter, usePathname } from 'next/navigation';
 import { 
   ArrowRight, 
   Download, 
@@ -26,6 +27,9 @@ import {
   MessageSquare
 } from 'lucide-react';
 import Image from 'next/image';
+import en from '../app/dictionaries/en.json';
+import vn from '../app/dictionaries/vn.json';
+import jp from '../app/dictionaries/jp.json';
 
 const SafeImage = ({ src, alt, fill, className, ...props }: any) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -230,30 +234,9 @@ const CATEGORIES = ['ALL', 'REACT', 'VUE', 'THREE.JS', 'NEXT.JS', 'GSAP', 'WEBGL
 type Language = 'VN' | 'EN' | 'JP';
 
 const TRANSLATIONS: Record<Language, any> = {
-  EN: {
-    nav: { projects: 'PROJECTS', experience: 'EXPERIENCE', skills: 'SKILLS', library: 'LIBRARY', viewCv: 'VIEW CV', preparing: 'PREPARING...', ready: 'READY' },
-    hero: { title: 'Year of the Horse: Bending the Web', subtitle: 'A Frontend Developer fusing kinetic energy with bold CSS experimentation. Crafting digital experiences that move with purpose and power.', explore: 'EXPLORE THE STABLE', download: 'DOWNLOAD CV', generating: 'GENERATING...', downloaded: 'DOWNLOADED' },
-    projects: { title: 'The Stable', subtitle: 'Where raw ideas are groomed into high-performance digital thoroughbreds. Each project is a testament to technical agility and visual dominance.', selected: 'Selected Works', recent: 'RECENT', az: 'A-Z', viewAll: 'VIEW ALL STALLIONS', showLess: 'SHOW LESS', demo: 'LIVE DEMO', source: 'SOURCE CODE', search: 'Search projects...' },
-    pedigree: { title: 'Pedigree', arsenal: 'CORE ARSENAL', kinetic: 'KINETIC & CREATIVE', tools: 'STABLE TOOLS' },
-    archive: { title: 'The Archive', subtitle: 'Capturing the rhythm of movement through a 35mm lens. A continuous scroll of inspiration.', keepCharging: 'Keep Charging' },
-    footer: { title: 'Ready to Ride?', subtitle: 'Available for selective collaborations and high-stakes creative engineering projects.', talk: "LET'S TALK" }
-  },
-  VN: {
-    nav: { projects: 'DỰ ÁN', experience: 'KINH NGHIỆM', skills: 'KỸ NĂNG', library: 'THƯ VIỆN', viewCv: 'XEM CV', preparing: 'ĐANG CHUẨN BỊ...', ready: 'SẴN SÀNG' },
-    hero: { title: 'Năm Giáp Ngọ: Uốn Cong Thế Giới Web', subtitle: 'Một Nhà Phát Triển Frontend kết hợp năng lượng động lực với các thử nghiệm CSS táo bạo. Tạo ra những trải nghiệm kỹ thuật số chuyển động có mục đích và sức mạnh.', explore: 'KHÁM PHÁ CÁC DỰ ÁN', download: 'TẢI CV', generating: 'ĐANG TẠO...', downloaded: 'ĐÃ TẢI XUỐNG' },
-    projects: { title: 'Chuồng Ngựa', subtitle: 'Nơi những ý tưởng thô được chăm sóc thành những chiến mã kỹ thuật số hiệu suất cao. Mỗi dự án là một minh chứng cho sự linh hoạt kỹ thuật và sự thống trị thị giác.', selected: 'Tác Phẩm Tiêu Biểu', recent: 'MỚI NHẤT', az: 'A-Z', viewAll: 'XEM TẤT CẢ CHIẾN MÃ', showLess: 'THU GỌN', demo: 'XEM DEMO', source: 'MÃ NGUỒN', search: 'Tìm kiếm dự án...' },
-    pedigree: { title: 'Gia Phả', arsenal: 'KHO VŨ KHÍ CỐT LÕI', kinetic: 'ĐỘNG LỰC & SÁNG TẠO', tools: 'CÔNG CỤ HỖ TRỢ' },
-    archive: { title: 'Kho Lưu Trữ', subtitle: 'Ghi lại nhịp điệu của chuyển động qua ống kính 35mm. Một cuộn cảm hứng liên tục.', keepCharging: 'Tiếp Tục Tiến Lên' },
-    footer: { title: 'Sẵn Sàng Bắt Đầu?', subtitle: 'Sẵn sàng cho các hợp tác chọn lọc và các dự án kỹ thuật sáng tạo đầy thử thách.', talk: 'LIÊN HỆ NGAY' }
-  },
-  JP: {
-    nav: { projects: 'プロジェクト', experience: '経歴', skills: 'スキル', library: 'ライブラリ', viewCv: '履歴書を見る', preparing: '準備中...', ready: '完了' },
-    hero: { title: '午年：ウェブを曲げる', subtitle: '動的エネルギーと大胆なCSS実験を融合させるフロントエンドデベロッパー。目的と力強さを持って動くデジタル体験を構築します。', explore: 'プロジェクトを見る', download: '履歴書をダウンロード', generating: '生成中...', downloaded: 'ダウンロード完了' },
-    projects: { title: '厩舎', subtitle: '生のアイデアが高性能な digital サラブレッドへと磨き上げられる場所。各プロジェクトは、技術的な敏捷性と視覚的な優位性の証です。', selected: '厳選された作品', recent: '最新順', az: '名前順', viewAll: 'すべての作品を見る', showLess: '表示を減らす', demo: 'デモを見る', source: 'ソースコード', search: 'プロジェクトを検索...' },
-    pedigree: { title: '血統', arsenal: 'コア技術', kinetic: '動的・創造的技術', tools: '開発ツール' },
-    archive: { title: 'アーカイブ', subtitle: '35mmレンズを通して動きのリズムを捉える。インスピレーションの連続スクロール。', keepCharging: '進み続ける' },
-    footer: { title: '準備はいいですか？', subtitle: '厳選されたコラボレーションやハイレベルなクリエイティブエンジニアリングプロジェクトに対応可能です。', talk: 'お問い合わせ' }
-  }
+  EN: en,
+  VN: vn,
+  JP: jp
 };
 
 const ARCHIVE_IMAGES = [
@@ -272,6 +255,12 @@ const ARCHIVE_IMAGES = [
 ];
 
 export default function Portfolio() {
+  const params = useParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const currentLang = (params?.lang as string)?.toUpperCase() || 'EN';
+  const lang = (['EN', 'VN', 'JP'].includes(currentLang) ? currentLang : 'EN') as Language;
+
   const [activeCategory, setActiveCategory] = useState('ALL');
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [selectedProject, setSelectedProject] = useState<any>(null);
@@ -279,7 +268,6 @@ export default function Portfolio() {
   const [isHoveringExplore, setIsHoveringExplore] = useState(false);
   const [randomProject, setRandomProject] = useState(() => PROJECTS[Math.floor(Math.random() * PROJECTS.length)]);
   const [downloadState, setDownloadState] = useState<'idle' | 'loading' | 'success'>('idle');
-  const [lang, setLang] = useState<Language>('EN');
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [explorePos, setExplorePos] = useState({ x: 0, y: 0 });
   const [showAll, setShowAll] = useState(false);
@@ -288,6 +276,18 @@ export default function Portfolio() {
   const exploreRef = useRef<HTMLDivElement>(null);
 
   const t = TRANSLATIONS[lang];
+
+  const handleLangChange = (newLang: Language) => {
+    setIsLangMenuOpen(false);
+    if (newLang === lang) return;
+    
+    // Replace the current language segment in the pathname
+    const segments = pathname.split('/');
+    segments[1] = newLang.toLowerCase();
+    const newPath = segments.join('/');
+    
+    router.push(newPath);
+  };
 
   const handleExploreMouseMove = (e: React.MouseEvent) => {
     if (!exploreRef.current) return;
@@ -381,10 +381,7 @@ export default function Portfolio() {
                 {(['EN', 'VN', 'JP'] as Language[]).map((l) => (
                   <button
                     key={l}
-                    onClick={() => {
-                      setLang(l);
-                      setIsLangMenuOpen(false);
-                    }}
+                    onClick={() => handleLangChange(l)}
                     className={`px-4 py-3 text-xs font-bold tracking-widest text-left transition-colors cursor-pointer ${lang === l ? 'bg-primary/20 text-primary' : 'hover:bg-white/10 text-white'}`}
                   >
                     {l === 'EN' ? 'ENGLISH' : l === 'VN' ? 'TIẾNG VIỆT' : '日本語'}

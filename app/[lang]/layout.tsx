@@ -1,6 +1,6 @@
 import type {Metadata} from 'next';
 import { Space_Grotesk, Cormorant_Garamond } from 'next/font/google';
-import './globals.css';
+import '../globals.css';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -19,9 +19,16 @@ export const metadata: Metadata = {
   description: 'A high-performance creative portfolio for a frontend developer specializing in kinetic web experiences.',
 };
 
-export default function RootLayout({children}: {children: React.ReactNode}) {
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${cormorant.variable} dark`}>
+    <html lang={lang} className={`${spaceGrotesk.variable} ${cormorant.variable} dark`}>
       <body className="bg-zinc-50 dark:bg-[#0a0404] text-zinc-900 dark:text-zinc-100 antialiased" suppressHydrationWarning>
         {children}
       </body>
