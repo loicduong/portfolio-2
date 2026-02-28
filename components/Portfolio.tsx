@@ -533,8 +533,8 @@ export default function Portfolio() {
       <nav className="fixed inset-0 pointer-events-none z-40 hidden lg:block">
         <div className="relative w-full h-full">
           <a href="#projects" className="pointer-events-auto absolute top-10 left-10 -rotate-12 hover:scale-110 transition-transform bg-primary px-6 py-2 rounded-full font-bold text-white shadow-xl shadow-primary/20">{t.nav.projects}</a>
-          <a href="#experience" className="pointer-events-auto absolute top-40 right-40 rotate-12 hover:scale-110 transition-transform bg-[#4a0404] border border-primary/30 px-6 py-2 rounded-full font-bold text-white">{t.nav.experience}</a>
-          <a href="#skills" className="pointer-events-auto absolute bottom-20 left-20 rotate-6 hover:scale-110 transition-transform border-2 border-primary px-6 py-2 rounded-full font-bold text-primary bg-black/80 backdrop-blur-md">{t.nav.skills}</a>
+          <a href="#experience" className="pointer-events-auto absolute top-40 right-10 rotate-12 hover:scale-110 transition-transform bg-[#4a0404] border border-primary/30 px-6 py-2 rounded-full font-bold text-white">{t.nav.experience}</a>
+          <a href="#skills" className="pointer-events-auto absolute bottom-30 left-20 rotate-6 hover:scale-110 transition-transform border-2 border-primary px-6 py-2 rounded-full font-bold text-primary bg-black/80 backdrop-blur-md">{t.nav.skills}</a>
           <a href="#library" className="pointer-events-auto absolute bottom-10 right-20 -rotate-6 hover:scale-110 transition-transform bg-accent-gold/20 text-accent-gold border border-accent-gold/50 px-6 py-2 rounded-full font-bold">{t.nav.library}</a>
         </div>
       </nav>
@@ -890,6 +890,28 @@ export default function Portfolio() {
                   ))}
                 </div>
               </div>
+              <div>
+                <h3 className="text-4xl font-black mb-8 flex items-center gap-4">
+                  <Layers className="text-zinc-400" size={32} />
+                  {t.pedigree.softSkills}
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {['Problem Solving', 'Attention to Detail', 'Mentoring', 'Code Review', 'Teamwork'].map(s => (
+                    <span key={s} className="px-5 py-3 bg-zinc-800 text-zinc-300 font-bold rounded-xl text-sm hover:scale-110 hover:bg-zinc-700 transition-all duration-300 cursor-default">{s}</span>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <h3 className="text-4xl font-black mb-8 flex items-center gap-4">
+                  <MessageSquare className="text-zinc-400" size={32} />
+                  {t.pedigree.languages}
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {['Vietnamese (Native)', 'English (Intermediate)'].map(s => (
+                    <span key={s} className="px-5 py-3 bg-zinc-800 text-zinc-300 font-bold rounded-xl text-sm hover:scale-110 hover:bg-zinc-700 transition-all duration-300 cursor-default">{s}</span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -968,7 +990,7 @@ export default function Portfolio() {
           
           <div className="flex flex-wrap justify-center gap-8 md:gap-16 mt-12">
             {[
-              { name: 'Website', icon: <Globe size={20} />, href: 'https://www.loicduong.dev' },
+              { name: 'Github', icon: <Github size={20} />, href: 'https://github.com/dploc96' },
               { name: 'LinkedIn', icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/in/loicduong' },
               { name: 'Email', icon: <Mail size={20} />, href: 'mailto:dploc96@gmail.com' },
               { name: 'Phone', icon: <Phone size={20} />, href: 'tel:0842575139' }
