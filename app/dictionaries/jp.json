@@ -9,8 +9,8 @@
     "ready": "完了"
   },
   "hero": {
-    "title": "午年：ウェブを曲げる",
-    "subtitle": "動的エネルギーと大胆なCSS実験を融合させるフロントエンドデベロッパー。目的と力強さを持って動くデジタル体験を構築します。",
+    "title": "Loc Duong",
+    "subtitle": "ウェブ開発で5年以上の経験を持つフロントエンド開発者。専門分野：VueJS、NuxtJS、Bootstrap、Tailwind、JavaScript、TypeScriptなど。",
     "explore": "プロジェクトを見る",
     "download": "履歴書をダウンロード",
     "generating": "生成中...",
@@ -30,9 +30,9 @@
   },
   "pedigree": {
     "title": "血統",
-    "arsenal": "コア技術",
-    "kinetic": "動的・創造的技術",
-    "tools": "開発ツール"
+    "arsenal": "フロントエンド技術",
+    "kinetic": "バックエンドとデータベース",
+    "tools": "ツールと方法論"
   },
   "archive": {
     "title": "アーカイブ",

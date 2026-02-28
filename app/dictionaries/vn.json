@@ -9,8 +9,8 @@
     "ready": "SẴN SÀNG"
   },
   "hero": {
-    "title": "Năm Giáp Ngọ: Uốn Cong Thế Giới Web",
-    "subtitle": "Một Nhà Phát Triển Frontend kết hợp năng lượng động lực với các thử nghiệm CSS táo bạo. Tạo ra những trải nghiệm kỹ thuật số chuyển động có mục đích và sức mạnh.",
+    "title": "Dương Phước Lộc",
+    "subtitle": "Nhà phát triển Frontend với hơn 5 năm kinh nghiệm trong lĩnh vực phát triển web. Chuyên môn bao gồm: VueJS, NuxtJS, Bootstrap, Tailwind, JavaScript, TypeScript, ...",
     "explore": "KHÁM PHÁ CÁC DỰ ÁN",
     "download": "TẢI CV",
     "generating": "ĐANG TẠO...",
@@ -30,9 +30,9 @@
   },
   "pedigree": {
     "title": "Gia Phả",
-    "arsenal": "KHO VŨ KHÍ CỐT LÕI",
-    "kinetic": "ĐỘNG LỰC & SÁNG TẠO",
-    "tools": "CÔNG CỤ HỖ TRỢ"
+    "arsenal": "KỸ NĂNG FRONTEND",
+    "kinetic": "BACKEND & CƠ SỞ DỮ LIỆU",
+    "tools": "CÔNG CỤ & PHƯƠNG PHÁP"
   },
   "archive": {
     "title": "Kho Lưu Trữ",

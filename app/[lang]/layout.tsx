@@ -15,8 +15,8 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: 'Year of the Horse | Creative Portfolio',
-  description: 'A high-performance creative portfolio for a frontend developer specializing in kinetic web experiences.',
+  title: 'Loc Duong | Frontend Web Developer',
+  description: 'Frontend Developer with 5+ years of experience in web development. Expertise includes: VueJS, NuxtJS, Bootstrap, Tailwind, JavaScript, TypeScript.',
 };
 
 export default async function RootLayout({

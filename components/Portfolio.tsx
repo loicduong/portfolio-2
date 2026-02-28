@@ -24,7 +24,8 @@ import {
   Loader2,
   Check,
   Search,
-  MessageSquare
+  MessageSquare,
+  Globe
 } from 'lucide-react';
 import Image from 'next/image';
 import en from '../app/dictionaries/en.json';
@@ -61,175 +62,322 @@ const SafeImage = ({ src, alt, fill, className, ...props }: any) => {
 const PROJECTS = [
   {
     id: 1,
-    title: 'GALLOPING CSS',
-    date: '2024-01-15',
+    title: 'Home Renovation Service Management',
+    date: '2025-03-01',
     description: {
-      EN: 'Equine movement patterns in pure CSS.',
-      VN: 'Các mẫu chuyển động của ngựa bằng CSS thuần túy.',
-      JP: '純粋なCSSによる馬の動きのパターン。'
+      EN: 'Associated with Teanis Technologies. Team size: 4.',
+      VN: 'Liên kết với Teanis Technologies. Quy mô nhóm: 4.',
+      JP: 'Teanis Technologies関連。チームサイズ：4。'
     },
     longDescription: {
-      EN: 'A deep dive into procedural animation using only CSS keyframes and custom properties. This project explores the mathematical rhythm of a horse\'s gallop, translated into a series of fluid, performant web animations. Features zero-dependency rendering and adaptive frame rates.',
-      VN: 'Đi sâu vào hoạt ảnh thủ tục chỉ sử dụng CSS keyframes và các thuộc tính tùy chỉnh. Dự án này khám phá nhịp điệu toán học của bước chạy đại của ngựa, được chuyển thành một loạt các hoạt ảnh web mượt mà, hiệu suất cao. Tính năng kết xuất không phụ thuộc và tốc độ khung hình thích ứng.',
-      JP: 'CSSキーフレームとカスタムプロパティのみを使用したプロシージャルアニメーションの深掘り。このプロジェクトでは、馬のギャロップの数学的なリズムを探索し、一連の流動的でパフォーマンスの高いウェブアニメーションに変換しました。依存関係のないレンダリングと適応型フレームレートが特徴です。'
+      EN: 'Skills: Attention to Detail, Problem Solving, Vue.js',
+      VN: 'Kỹ năng: Chú ý đến chi tiết, Giải quyết vấn đề, Vue.js',
+      JP: 'スキル：細部へのこだわり、問題解決、Vue.js'
     },
-    tags: ['REACT', 'GSAP'],
-    category: 'REACT',
-    image: 'https://picsum.photos/seed/gallop/1200/800',
+    tags: ['VUE.JS', 'PROBLEM SOLVING'],
+    category: 'VUE.JS',
+    image: 'https://picsum.photos/seed/home-renovation/1200/800',
     size: 'large',
     demoLink: '#',
     repoLink: '#'
   },
   {
     id: 2,
-    title: 'KINETIC JS',
-    date: '2023-11-20',
+    title: 'Vite Plugin Vue Layouts Next',
+    date: '2025-02-01',
     description: {
-      EN: 'Dynamic motion systems.',
-      VN: 'Hệ thống chuyển động động.',
-      JP: 'ダイナミックなモーションシステム。'
+      EN: 'Open source Vite plugin.',
+      VN: 'Plugin Vite mã nguồn mở.',
+      JP: 'オープンソースのViteプラグイン。'
     },
     longDescription: {
-      EN: 'A custom physics engine built on top of Three.js to simulate complex kinetic structures. This experiment focuses on the intersection of rigid body dynamics and user-driven interaction, creating a playground of reactive digital objects.',
-      VN: 'Một công cụ vật lý tùy chỉnh được xây dựng trên Three.js để mô phỏng các cấu trúc động lực phức tạp. Thử nghiệm này tập trung vào sự giao thoa giữa động lực học vật thể rắn và tương tác do người dùng điều khiển, tạo ra một sân chơi của các đối tượng kỹ thuật số phản ứng.',
-      JP: 'Three.jsの上に構築されたカスタム物理エンジンで、複雑な動的構造をシミュレートします。この実験は、剛体力学とユーザー主導のインタラクションの交差点に焦点を当て、反応的なデジタルオブジェクトのプレイグラウンドを作成します。'
+      EN: 'Skills: Attention to Detail, Problem Solving. Links: GitHub, NPM.',
+      VN: 'Kỹ năng: Chú ý đến chi tiết, Giải quyết vấn đề. Liên kết: GitHub, NPM.',
+      JP: 'スキル：細部へのこだわり、問題解決。リンク：GitHub、NPM。'
     },
-    tags: ['THREE.JS'],
-    category: 'THREE.JS',
-    image: 'https://picsum.photos/seed/kinetic/800/800',
+    tags: ['VITE', 'VUE.JS', 'NPM'],
+    category: 'OPEN SOURCE',
+    image: 'https://picsum.photos/seed/vite-plugin/800/800',
     size: 'small',
     demoLink: '#',
     repoLink: '#'
   },
   {
     id: 3,
-    title: 'RED LUCK UI',
-    date: '2024-02-05',
+    title: 'Trading User Management',
+    date: '2025-01-01',
     description: {
-      EN: 'Minimalist design system.',
-      VN: 'Hệ thống thiết kế tối giản.',
-      JP: 'ミニマリストなデザインシステム。'
+      EN: 'Associated with Teanis Technologies. Team size: 5.',
+      VN: 'Liên kết với Teanis Technologies. Quy mô nhóm: 5.',
+      JP: 'Teanis Technologies関連。チームサイズ：5。'
     },
     longDescription: {
-      EN: 'A comprehensive design system built for high-stakes creative projects. Red Luck UI prioritizes bold typography, extreme contrast, and micro-interactions that feel heavy and intentional. Built with Tailwind CSS and Radix UI primitives.',
-      VN: 'Một hệ thống thiết kế toàn diện được xây dựng cho các dự án sáng tạo quan trọng. Red Luck UI ưu tiên kiểu chữ đậm, độ tương phản cực cao và các tương tác vi mô mang lại cảm giác nặng nề và có chủ đích. Được xây dựng với Tailwind CSS và các nguyên mẫu Radix UI.',
-      JP: '重要なクリエイティブプロジェクト向けに構築された包括的なデザインシステム。Red Luck UIは、大胆なタイポグラフィ、極端なコントラスト、そして重厚で意図的なマイクロインタラクションを優先しています。Tailwind CSSとRadix UIプリミティブを使用して構築されています。'
+      EN: 'Skills: Git, GitFlow, Express.js, Agile Methodologies, TypeScript, Attention to Detail, Problem Solving, Node.js, JavaScript, SQL, Gitlab, Vanilla JavaScript',
+      VN: 'Kỹ năng: Git, GitFlow, Express.js, Phương pháp Agile, TypeScript, Chú ý đến chi tiết, Giải quyết vấn đề, Node.js, JavaScript, SQL, Gitlab, Vanilla JavaScript',
+      JP: 'スキル：Git、GitFlow、Express.js、アジャイル手法、TypeScript、細部へのこだわり、問題解決、Node.js、JavaScript、SQL、Gitlab、Vanilla JavaScript'
     },
-    tags: ['NEXT.JS'],
-    category: 'NEXT.JS',
-    image: 'https://picsum.photos/seed/redluck/800/800',
+    tags: ['EXPRESS.JS', 'TYPESCRIPT', 'NODE.JS'],
+    category: 'NODE.JS',
+    image: 'https://picsum.photos/seed/trading-user/800/800',
     size: 'small',
     demoLink: '#',
     repoLink: '#'
   },
   {
     id: 4,
-    title: 'GOLDEN HORSE ENGINE',
-    date: '2023-09-12',
+    title: 'SugaMe',
+    date: '2022-05-01',
     description: {
-      EN: 'High-performance rendering.',
-      VN: 'Kết xuất hiệu suất cao.',
-      JP: '高性能レンダリング。'
+      EN: 'A human resource management system for the HR department and 100+ employees.',
+      VN: 'Hệ thống quản lý nhân sự cho bộ phận nhân sự và hơn 100 nhân viên.',
+      JP: '人事部と100人以上の従業員のための人事管理システム。'
     },
     longDescription: {
-      EN: 'An experimental WebGL rendering pipeline optimized for mobile devices. It utilizes custom GLSL shaders to achieve high-fidelity lighting and particle effects while maintaining a consistent 60fps on low-power hardware.',
-      VN: 'Một quy trình kết xuất WebGL thử nghiệm được tối ưu hóa cho thiết bị di động. Nó sử dụng các shader GLSL tùy chỉnh để đạt được hiệu ứng ánh sáng và hạt có độ trung thực cao trong khi vẫn duy trì tốc độ 60 khung hình/giây ổn định trên phần cứng năng lượng thấp.',
-      JP: 'モバイルデバイス向けに最適化された実験的なWebGLレンダリングパイプライン。カスタムGLSLシェーダーを利用して、低電力ハードウェアでも安定した60fpsを維持しながら、高忠実度のライティングとパーティクルエフェクトを実現します。'
+      EN: 'A human resource management system for the HR department and 100+ employees of the company, including an admin dashboard and a management website for employees. Team size: 6. Skills: HTML, HTML5, Git, ESLint, Chart.js, GitFlow, Agile Methodologies, TypeScript, Vuex, Front-End Development, Attention to Detail, Problem Solving, REST APIs, Web Applications, Web Development, CSS, Responsive Web Design, Code Review, Agile Development, Node.js, Vue.js, JavaScript, Web Technologies, Version Control, Gitlab, State Management, Vanilla JavaScript, Mentoring.',
+      VN: 'Hệ thống quản lý nhân sự cho bộ phận nhân sự và hơn 100 nhân viên của công ty, bao gồm bảng điều khiển quản trị và trang web quản lý cho nhân viên. Quy mô nhóm: 6. Kỹ năng: Vue.js, TypeScript, Node.js, v.v.',
+      JP: '人事部と100人以上の従業員のための人事管理システム。管理ダッシュボードと従業員向け管理ウェブサイトが含まれます。チームサイズ：6。'
     },
-    tags: ['WEBGL'],
-    category: 'WEBGL',
-    image: 'https://picsum.photos/seed/golden/800/800',
+    tags: ['VUE.JS', 'TYPESCRIPT', 'NODE.JS'],
+    category: 'VUE.JS',
+    image: 'https://picsum.photos/seed/sugame/800/800',
     size: 'small',
     demoLink: '#',
     repoLink: '#'
   },
   {
     id: 5,
-    title: 'SHADOW HOOF',
-    date: '2024-02-20',
+    title: 'Vue Boilerplate (Internal)',
+    date: '2023-10-01',
     description: {
-      EN: 'Dark mode exploration.',
-      VN: 'Khám phá chế độ tối.',
-      JP: 'ダークモードの探索。'
+      EN: 'Internal Vue boilerplate.',
+      VN: 'Boilerplate Vue nội bộ.',
+      JP: '内部Vueボイラープレート。'
     },
     longDescription: {
-      EN: 'An immersive dark-mode-first experience that uses CSS backdrop filters and SVG masks to create a layered, atmospheric interface. This project challenges standard accessibility patterns to find a balance between high-concept aesthetics and usability.',
-      VN: 'Một trải nghiệm ưu tiên chế độ tối đắm chìm sử dụng các bộ lọc nền CSS và mặt nạ SVG để tạo ra một giao diện phân lớp, đầy không khí. Dự án này thách thức các mẫu khả năng tiếp cận tiêu chuẩn để tìm ra sự cân bằng giữa tính thẩm mỹ ý tưởng cao và khả năng sử dụng.',
-      JP: 'CSSバックドロップフィルターとSVGマスクを使用して、レイヤー化された雰囲気のあるインターフェースを作成する、没入型のダークモード優先体験。このプロジェクトは、標準的なアクセシビリティパターンに挑戦し、ハイコンセプトな美学とユーザビリティのバランスを見つけます。'
+      EN: 'Associated with Teanis Technologies. Skills: ESLint, GitFlow, Front-End Development, Attention to Detail, Problem Solving, REST APIs, Web Applications, Node.js, Vue.js, State Management.',
+      VN: 'Liên kết với Teanis Technologies. Kỹ năng: Vue.js, Node.js, REST APIs.',
+      JP: 'Teanis Technologies関連。スキル：Vue.js、Node.js、REST API。'
     },
-    tags: ['GSAP'],
-    category: 'GSAP',
-    image: 'https://picsum.photos/seed/shadow/800/800',
+    tags: ['VUE.JS', 'NODE.JS', 'REST APIS'],
+    category: 'VUE.JS',
+    image: 'https://picsum.photos/seed/vue-boilerplate/800/800',
     size: 'small',
     demoLink: '#',
     repoLink: '#'
   },
   {
     id: 6,
-    title: 'NEON MANE',
-    date: '2024-03-01',
+    title: 'HTML Boilerplate (Internal)',
+    date: '2023-11-01',
     description: {
-      EN: 'Cyberpunk aesthetic UI.',
-      VN: 'Giao diện thẩm mỹ Cyberpunk.',
-      JP: 'サイバーパンク風のUI。'
+      EN: 'A boilerplate HTML for developing static web pages.',
+      VN: 'Một boilerplate HTML để phát triển các trang web tĩnh.',
+      JP: '静的ウェブページを開発するためのHTMLボイラープレート。'
     },
     longDescription: {
-      EN: 'A neon-drenched interface exploring futuristic typography and glow effects. Built with advanced CSS filters and custom SVG filters to achieve a true cyberpunk look without sacrificing performance.',
-      VN: 'Một giao diện ngập tràn ánh đèn neon khám phá kiểu chữ tương lai và hiệu ứng phát sáng. Được xây dựng với các bộ lọc CSS nâng cao và bộ lọc SVG tùy chỉnh để đạt được vẻ ngoài cyberpunk thực sự mà không ảnh hưởng đến hiệu suất.',
-      JP: 'フューチャリスティックなタイポグラフィとグロー効果を探索する、ネオンに満ちたインターフェース。パフォーマンスを犠牲にすることなく、高度なCSSフィルターとカスタムSVGフィルターを使用して、真のサイバーパンクな外観を実現しました。'
+      EN: 'A boilerplate HTML for developing static web pages for Web developers in team. Team size: 1. Skills: ESLint, GitFlow, Front-End Development, Attention to Detail, Problem Solving, Node.js.',
+      VN: 'Một boilerplate HTML để phát triển các trang web tĩnh cho các nhà phát triển web trong nhóm. Quy mô nhóm: 1.',
+      JP: 'チーム内のウェブ開発者向けの静的ウェブページ開発用HTMLボイラープレート。チームサイズ：1。'
     },
-    tags: ['REACT', 'TAILWIND'],
-    category: 'REACT',
-    image: 'https://picsum.photos/seed/neon/800/800',
+    tags: ['HTML', 'NODE.JS', 'FRONT-END'],
+    category: 'NODE.JS',
+    image: 'https://picsum.photos/seed/html-boilerplate/800/800',
     size: 'small',
     demoLink: '#',
     repoLink: '#'
   },
   {
     id: 7,
-    title: 'STALLION CMS',
-    date: '2023-12-10',
+    title: 'Device Location Management',
+    date: '2024-08-01',
     description: {
-      EN: 'Headless content management.',
-      VN: 'Quản lý nội dung không đầu.',
-      JP: 'ヘッドレスコンテンツ管理。'
+      EN: 'An admin dashboard for managing the location of user devices within buildings.',
+      VN: 'Bảng điều khiển quản trị để quản lý vị trí thiết bị của người dùng trong các tòa nhà.',
+      JP: '建物内のユーザーデバイスの位置を管理するための管理ダッシュボード。'
     },
     longDescription: {
-      EN: 'A lightweight headless CMS built for speed and developer experience. Features a real-time preview engine and a flexible schema builder that adapts to any content structure.',
-      VN: 'Một CMS không đầu nhẹ được xây dựng cho tốc độ và trải nghiệm nhà phát triển. Tính năng công cụ xem trước thời gian thực và trình tạo lược đồ linh hoạt thích ứng với mọi cấu trúc nội dung.',
-      JP: 'スピードとデベロッパーエクスペリエンスのために構築された軽量なヘッドレスCMS。リアルタイムプレビューエンジンと、あらゆるコンテンツ構造に適応する柔軟なスキーマビルダーを備えています。'
+      EN: 'An admin dashboard for managing the location of user devices within buildings. Team size: 4. Skills: HTML, HTML5, Git, Tailwind CSS, ESLint, Chart.js, GitFlow, Agile Methodologies, TypeScript, Front-End Development, Attention to Detail, Problem Solving, REST APIs, Web Applications, Web Development, CSS, Responsive Web Design, Agile Development, Node.js, Vue.js, JavaScript, Web Technologies, Version Control, Gitlab, State Management, Vanilla JavaScript.',
+      VN: 'Bảng điều khiển quản trị để quản lý vị trí thiết bị của người dùng trong các tòa nhà. Quy mô nhóm: 4.',
+      JP: '建物内のユーザーデバイスの位置を管理するための管理ダッシュボード。チームサイズ：4。'
     },
-    tags: ['NEXT.JS', 'PRISMA'],
-    category: 'NEXT.JS',
-    image: 'https://picsum.photos/seed/cms/1200/800',
+    tags: ['VUE.JS', 'TAILWIND CSS', 'TYPESCRIPT'],
+    category: 'VUE.JS',
+    image: 'https://picsum.photos/seed/device-location/1200/800',
     size: 'large',
     demoLink: '#',
     repoLink: '#'
   },
   {
     id: 8,
-    title: 'IRON HOOF',
-    date: '2023-08-25',
+    title: 'Patient Management',
+    date: '2024-05-01',
     description: {
-      EN: 'Industrial design components.',
-      VN: 'Các thành phần thiết kế công nghiệp.',
-      JP: 'インダストリアルデザインコンポーネント。'
+      EN: 'Associated with Teanis Technologies. Team size: 9.',
+      VN: 'Liên kết với Teanis Technologies. Quy mô nhóm: 9.',
+      JP: 'Teanis Technologies関連。チームサイズ：9。'
     },
     longDescription: {
-      EN: 'A collection of UI components inspired by heavy machinery and industrial aesthetics. Focuses on tactile feedback and brutalist layout patterns.',
-      VN: 'Một bộ sưu tập các thành phần UI lấy cảm hứng từ máy móc hạng nặng và thẩm mỹ công nghiệp. Tập trung vào phản hồi xúc giác và các mẫu bố cục brutalist.',
-      JP: '重機やインダストリアルな美学にインスパイアされたUIコンポーネントのコレクション。触覚的なフィードバックとブルータリズムのレイアウトパターンに焦点を当てています。'
+      EN: 'Skills: HTML, HTML5, Git, Tailwind CSS, ESLint, GitFlow, Agile Methodologies, TypeScript, Front-End Development, Attention to Detail, Problem Solving, REST APIs, Web Applications, Web Development, CSS, Responsive Web Design, Code Review, Agile Development, Node.js, Vue.js, JavaScript, Web Technologies, Version Control, Gitlab, State Management, Vanilla JavaScript, Mentoring.',
+      VN: 'Quy mô nhóm: 9. Kỹ năng: Vue.js, TypeScript, Tailwind CSS, Node.js.',
+      JP: 'チームサイズ：9。スキル：Vue.js、TypeScript、Tailwind CSS、Node.js。'
     },
-    tags: ['VUE', 'SCSS'],
-    category: 'VUE',
-    image: 'https://picsum.photos/seed/iron/800/800',
+    tags: ['VUE.JS', 'TYPESCRIPT', 'TAILWIND CSS'],
+    category: 'VUE.JS',
+    image: 'https://picsum.photos/seed/patient-management/800/800',
+    size: 'small',
+    demoLink: '#',
+    repoLink: '#'
+  },
+  {
+    id: 9,
+    title: 'Telecommunications Business',
+    date: '2024-08-01',
+    description: {
+      EN: 'Associated with Teanis Technologies.',
+      VN: 'Liên kết với Teanis Technologies.',
+      JP: 'Teanis Technologies関連。'
+    },
+    longDescription: {
+      EN: 'Skills: HTML, HTML5, Git, Tailwind CSS, ESLint, GitFlow, Agile Methodologies, TypeScript, Front-End Development, Attention to Detail, Problem Solving, REST APIs, Web Applications, Web Development, CSS, Responsive Web Design, Code Review, Agile Development, Node.js, Vue.js, JavaScript, Web Technologies, Version Control, Gitlab, State Management, Vanilla JavaScript.',
+      VN: 'Kỹ năng: Vue.js, TypeScript, Tailwind CSS, Node.js.',
+      JP: 'スキル：Vue.js、TypeScript、Tailwind CSS、Node.js。'
+    },
+    tags: ['VUE.JS', 'TYPESCRIPT', 'TAILWIND CSS'],
+    category: 'VUE.JS',
+    image: 'https://picsum.photos/seed/telecom/800/800',
+    size: 'small',
+    demoLink: '#',
+    repoLink: '#'
+  },
+  {
+    id: 10,
+    title: 'W3S CLI (Internal)',
+    date: '2024-06-01',
+    description: {
+      EN: 'A CLI tool that automatically generates a changelog based on commits.',
+      VN: 'Một công cụ CLI tự động tạo nhật ký thay đổi dựa trên các commit.',
+      JP: 'コミットに基づいて変更履歴を自動的に生成するCLIツール。'
+    },
+    longDescription: {
+      EN: 'A CLI tool that automatically generates a changelog based on commits for the web developers team. Type: Internal. Team size: 1. Skills: GitFlow, Attention to Detail, Problem Solving, Node.js. Links: NPM.',
+      VN: 'Một công cụ CLI tự động tạo nhật ký thay đổi dựa trên các commit cho nhóm phát triển web. Quy mô nhóm: 1.',
+      JP: 'ウェブ開発チーム向けに、コミットに基づいて変更履歴を自動的に生成するCLIツール。チームサイズ：1。'
+    },
+    tags: ['NODE.JS', 'CLI', 'NPM'],
+    category: 'NODE.JS',
+    image: 'https://picsum.photos/seed/w3s-cli/800/800',
+    size: 'small',
+    demoLink: '#',
+    repoLink: '#'
+  },
+  {
+    id: 11,
+    title: 'WalaClub',
+    date: '2024-02-01',
+    description: {
+      EN: 'A website & a dashboard. Team size: 5.',
+      VN: 'Một trang web & bảng điều khiển. Quy mô nhóm: 5.',
+      JP: 'ウェブサイトとダッシュボード。チームサイズ：5。'
+    },
+    longDescription: {
+      EN: 'Skills: HTML, HTML5, Git, jQuery, ESLint, PHP, GitFlow, Agile Methodologies, Front-End Development, Attention to Detail, Problem Solving, E-Commerce, REST APIs, Web Applications, Laravel, Web Development, CSS, Responsive Web Design, Agile Development, Server Side, Node.js, Vue.js, JavaScript, Web Technologies, AJAX, Version Control, Gitlab, State Management, Vanilla JavaScript. Links: Information Website.',
+      VN: 'Kỹ năng: Vue.js, Laravel, PHP, E-Commerce.',
+      JP: 'スキル：Vue.js、Laravel、PHP、Eコマース。'
+    },
+    tags: ['VUE.JS', 'LARAVEL', 'PHP'],
+    category: 'LARAVEL',
+    image: 'https://picsum.photos/seed/walaclub/800/800',
+    size: 'small',
+    demoLink: '#',
+    repoLink: '#'
+  },
+  {
+    id: 12,
+    title: 'Vietnam Wine Business',
+    date: '2024-05-01',
+    description: {
+      EN: 'Includes an e-commerce website for customers and a management dashboard website for the admin.',
+      VN: 'Bao gồm một trang web thương mại điện tử cho khách hàng và một trang web bảng điều khiển quản lý cho quản trị viên.',
+      JP: '顧客向けのEコマースウェブサイトと管理者向けの管理ダッシュボードウェブサイトが含まれます。'
+    },
+    longDescription: {
+      EN: 'Includes an e-commerce website for customers and a management dashboard website for the admin. Team size: 4. Skills: HTML, HTML5, Git, jQuery, ESLint, PHP, GitFlow, Agile Methodologies, Front-End Development, Attention to Detail, Problem Solving, E-Commerce, REST APIs, Web Applications, Laravel, Web Development, CSS, Responsive Web Design, Agile Development, Server Side, Node.js, Vue.js, JavaScript, Web Technologies, AJAX, Version Control, Gitlab, State Management, Vanilla JavaScript.',
+      VN: 'Quy mô nhóm: 4. Kỹ năng: Vue.js, Laravel, E-Commerce.',
+      JP: 'チームサイズ：4。スキル：Vue.js、Laravel、Eコマース。'
+    },
+    tags: ['VUE.JS', 'LARAVEL', 'E-COMMERCE'],
+    category: 'LARAVEL',
+    image: 'https://picsum.photos/seed/vietnam-wine/1200/800',
+    size: 'large',
+    demoLink: '#',
+    repoLink: '#'
+  },
+  {
+    id: 13,
+    title: 'Yeahfit',
+    date: '2023-03-01',
+    description: {
+      EN: 'A training booking management system for gym systems.',
+      VN: 'Hệ thống quản lý đặt lịch tập luyện cho các hệ thống phòng tập thể dục.',
+      JP: 'ジムシステム向けのトレーニング予約管理システム。'
+    },
+    longDescription: {
+      EN: 'A training booking management system for gym systems, including an admin dashboard and a web app for customer booking. Team size: 5. Responsibilities: Led code merges and reviews. Managed CI/CD pipelines. Mentored new team members. Skills: HTML, HTML5, Git, ESLint, Chart.js, GitFlow, Agile Methodologies, TypeScript, Front-End Development, Attention to Detail, Problem Solving, REST APIs, Web Applications, Web Development, CSS, Responsive Web Design, Code Review, Agile Development, Node.js, Vue.js, JavaScript, Web Technologies, Version Control, Gitlab, State Management, Vanilla JavaScript, Mentoring.',
+      VN: 'Quy mô nhóm: 5. Trách nhiệm: Dẫn dắt việc hợp nhất mã và đánh giá. Quản lý đường ống CI/CD. Cố vấn cho các thành viên mới trong nhóm.',
+      JP: 'チームサイズ：5。責任：コードのマージとレビューを主導。CI/CDパイプラインを管理。新しいチームメンバーを指導。'
+    },
+    tags: ['VUE.JS', 'TYPESCRIPT', 'NODE.JS'],
+    category: 'VUE.JS',
+    image: 'https://picsum.photos/seed/yeahfit/800/800',
+    size: 'small',
+    demoLink: '#',
+    repoLink: '#'
+  },
+  {
+    id: 14,
+    title: 'Camly',
+    date: '2021-06-01',
+    description: {
+      EN: 'A management system for real estate projects.',
+      VN: 'Hệ thống quản lý cho các dự án bất động sản.',
+      JP: '不動産プロジェクトの管理システム。'
+    },
+    longDescription: {
+      EN: 'A management system for real estate projects, including an admin dashboard and a management website for customers. Team size: 6. Skills: HTML, HTML5, Git, Nuxt.js, ESLint, GitFlow, Agile Methodologies, Vuex, Front-End Development, Attention to Detail, Problem Solving, REST APIs, Web Applications, Web Development, CSS, Responsive Web Design, Agile Development, Node.js, Vue.js, JavaScript, Web Technologies, Version Control, Gitlab, State Management, Vanilla JavaScript.',
+      VN: 'Quy mô nhóm: 6. Kỹ năng: Nuxt.js, Vue.js, Node.js.',
+      JP: 'チームサイズ：6。スキル：Nuxt.js、Vue.js、Node.js。'
+    },
+    tags: ['NUXT.JS', 'VUE.JS', 'NODE.JS'],
+    category: 'VUE.JS',
+    image: 'https://picsum.photos/seed/camly/800/800',
+    size: 'small',
+    demoLink: '#',
+    repoLink: '#'
+  },
+  {
+    id: 15,
+    title: 'Tien Tien',
+    date: '2019-07-01',
+    description: {
+      EN: 'A specialized ERP management system for the textile industry.',
+      VN: 'Hệ thống quản lý ERP chuyên dụng cho ngành dệt may.',
+      JP: '繊維産業向けの専門的なERP管理システム。'
+    },
+    longDescription: {
+      EN: 'A specialized ERP management system for the textile industry. Platforms: Desktop App. Team size: 8. Skills: Tortoise SVN, Visual Basic .NET (VB.NET), SQL, Microsoft SQL Server. Links: Demo Video.',
+      VN: 'Nền tảng: Ứng dụng Desktop. Quy mô nhóm: 8. Kỹ năng: VB.NET, SQL Server.',
+      JP: 'プラットフォーム：デスクトップアプリ。チームサイズ：8。スキル：VB.NET、SQL Server。'
+    },
+    tags: ['VB.NET', 'SQL SERVER', 'ERP'],
+    category: 'DESKTOP APP',
+    image: 'https://picsum.photos/seed/tientien/800/800',
     size: 'small',
     demoLink: '#',
     repoLink: '#'
   }
 ];
 
-const CATEGORIES = ['ALL', 'REACT', 'VUE', 'THREE.JS', 'NEXT.JS', 'GSAP', 'WEBGL'];
+const CATEGORIES = ['ALL', 'VUE.JS', 'NODE.JS', 'LARAVEL', 'OPEN SOURCE', 'DESKTOP APP'];
 
 type Language = 'VN' | 'EN' | 'JP';
 
@@ -401,7 +549,7 @@ export default function Portfolio() {
               <path d="M96.0426 155.334H35.5627V131.334H96.0426V155.334Z" fill="currentColor"/>
               <path d="M24.1595 72H24.0195V24H24.1595V-2.86102e-06H0.0421448V96H24.1595V72Z" fill="currentColor"/>
             </svg>
-            <h1 className="text-4xl font-black tracking-tighter uppercase">HORSE/FE</h1>
+            <h1 className="text-4xl font-black tracking-tighter uppercase">LOC DUONG</h1>
           </div>
         </div>
 
@@ -415,7 +563,7 @@ export default function Portfolio() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0404] via-transparent to-transparent"></div>
             <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none">
-              <span className="text-[15vw] font-black uppercase text-primary/5 select-none leading-none -mb-4 block">GALLOP</span>
+              <span className="text-[15vw] font-black uppercase text-primary/5 select-none leading-none -mb-4 block">FRONTEND</span>
             </div>
           </div>
         </div>
@@ -639,37 +787,59 @@ export default function Portfolio() {
               
               {[
                 {
-                  year: '2023 - PRESENT',
-                  role: lang === 'VN' ? 'KIẾN TRÚC SƯ CẤP CAO' : lang === 'JP' ? 'シニアアーキテクト' : 'SENIOR ARCHITECT',
-                  company: 'Digital Gallop Studio',
+                  year: 'May 2022 - Present',
+                  role: lang === 'VN' ? 'LẬP TRÌNH VIÊN FRONTEND WEB' : lang === 'JP' ? 'フロントエンドウェブ開発者' : 'FRONTEND WEB DEVELOPER',
+                  company: 'Teanis Technologies',
                   desc: lang === 'VN' 
-                    ? 'Dẫn đầu trong việc xây dựng các giao diện WebGL hiệu suất cao và kể chuyện tương tác điện ảnh cho các thương hiệu xa xỉ toàn cầu.' 
+                    ? 'Quy mô nhóm: 10+. Kỹ năng: Vue.js, SQL và hơn 40 kỹ năng khác.' 
                     : lang === 'JP' 
-                    ? 'グローバルラグジュアリーブランド向けの高性能WebGLインターフェースとシネマティックなインタラクティブストーリーテリングをリードしています。' 
-                    : 'Leading the charge in high-performance WebGL interfaces and cinematic interactive storytelling for global luxury brands.',
+                    ? 'チームサイズ：10+。スキル：Vue.js、SQL、その他40以上のスキル。' 
+                    : 'Team size: 10+. Skills: Vue.js, SQL and +40 skills.',
                   icon: <Layers size={16} />
                 },
                 {
-                  year: '2021 - 2023',
-                  role: lang === 'VN' ? 'NGƯỜI THỬ NGHIỆM UI' : lang === 'JP' ? 'UI実験者' : 'UI EXPERIMENTER',
-                  company: 'Avant-Garde Web Lab',
+                  year: 'Apr 2021 - Apr 2022',
+                  role: lang === 'VN' ? 'LẬP TRÌNH VIÊN FRONTEND WEB (FRESHER)' : lang === 'JP' ? '新人フロントエンドウェブ開発者' : 'FRESHER FRONTEND WEB DEVELOPER',
+                  company: 'Teanis Technologies',
                   desc: lang === 'VN' 
-                    ? 'Phát triển các hệ thống hoạt ảnh độc quyền bằng GSAP và Matter.js cho các chuyển đổi bố cục dựa trên vật lý.' 
+                    ? 'Quy mô nhóm: 10+. Kỹ năng: Vue.js, ESLint và hơn 10 kỹ năng khác.' 
                     : lang === 'JP' 
-                    ? '物理ベースのレイアウト変換のために、GSAPとMatter.jsを使用した独自の記述アニメーションシステムを開発しました。' 
-                    : 'Developed proprietary animation systems using GSAP and Matter.js for physics-based layout transformations.',
+                    ? 'チームサイズ：10+。スキル：Vue.js、ESLint、その他10以上のスキル。' 
+                    : 'Team size: 10+. Skills: Vue.js, ESLint and +10 skills.',
+                  icon: <Layers size={16} />
+                },
+                {
+                  year: 'Sep 2020 - Mar 2021',
+                  role: lang === 'VN' ? 'CHUYỂN ĐỔI NGHỀ NGHIỆP' : lang === 'JP' ? 'キャリアチェンジ' : 'CAREER TRANSITION',
+                  company: 'Career Break',
+                  desc: lang === 'VN' 
+                    ? 'Tự học để trở thành Lập trình viên Frontend Web. Bao gồm: React, Bootstrap, Git, Github, Heroku, ...' 
+                    : lang === 'JP' 
+                    ? 'フロントエンドウェブ開発者になるための独学。React、Bootstrap、Git、Github、Herokuなどを含みます。' 
+                    : 'Self-studying to become a Frontend Web Developer. Including: React, Bootstrap, Git, Github, Heroku, ...',
+                  icon: <History size={16} />
+                },
+                {
+                  year: 'Jul 2019 - Aug 2020',
+                  role: lang === 'VN' ? 'KỸ SƯ PHẦN MỀM' : lang === 'JP' ? 'ソフトウェアエンジニア' : 'SOFTWARE ENGINEER',
+                  company: 'DEC Engineering',
+                  desc: lang === 'VN' 
+                    ? 'Quy mô nhóm: 9. Kỹ năng: Microsoft SQL Server, SQL và hơn 9 kỹ năng khác.' 
+                    : lang === 'JP' 
+                    ? 'チームサイズ：9。スキル：Microsoft SQL Server、SQL、その他9以上のスキル。' 
+                    : 'Team size: 9. Skills: Microsoft SQL Server, SQL and +9 skills.',
                   icon: <Zap size={16} />
                 },
                 {
-                  year: '2019 - 2021',
-                  role: lang === 'VN' ? 'LẬP TRÌNH VIÊN FRONTEND' : lang === 'JP' ? 'フロントエンドジョッキー' : 'FRONTEND JOCKEY',
-                  company: 'Kinetic Creative',
+                  year: 'Jun 2019 - Aug 2019',
+                  role: lang === 'VN' ? 'THỰC TẬP SINH KỸ SƯ PHẦN MỀM' : lang === 'JP' ? 'ソフトウェアエンジニアインターン' : 'SOFTWARE ENGINEER INTERN',
+                  company: 'DEC Engineering',
                   desc: lang === 'VN' 
-                    ? 'Tạo ra các bước chuyển mượt mà và bố cục đáp ứng hoàn hảo trong những ngày đầu của CSS Grid hiện đại.' 
+                    ? 'Quy mô nhóm: 6. Kỹ năng: Microsoft SQL Server, Visual Basic .NET (VB.NET) và hơn 4 kỹ năng khác.' 
                     : lang === 'JP' 
-                    ? 'モダンなCSS Gridの初期段階において、スムーズな遷移とピクセルパーフェクトなレスポンシブレイアウトを構築しました。' 
-                    : 'Crafting smooth transitions and pixel-perfect responsive layouts in the early days of modern CSS Grid.',
-                  icon: <History size={16} />
+                    ? 'チームサイズ：6。スキル：Microsoft SQL Server、Visual Basic .NET (VB.NET)、その他4以上のスキル。' 
+                    : 'Team size: 6. Skills: Microsoft SQL Server, Visual Basic .NET (VB.NET) and +4 skills.',
+                  icon: <Zap size={16} />
                 }
               ].map((item, i) => (
                 <div key={i} className="relative pl-12 md:pl-20 group">
@@ -693,7 +863,7 @@ export default function Portfolio() {
                   {t.pedigree.arsenal}
                 </h3>
                 <div className="flex flex-wrap gap-3">
-                  {['React / Next.js', 'TypeScript', 'Tailwind CSS', 'Web Performance', 'A11y Architecture'].map(s => (
+                  {['Vue.js / Nuxt.js', 'React / Next.js', 'TypeScript / JavaScript', 'Tailwind CSS / Bootstrap', 'HTML5 / CSS3'].map(s => (
                     <span key={s} className="px-5 py-3 bg-primary text-white font-bold rounded-xl text-sm shadow-lg shadow-primary/20 hover:scale-110 hover:bg-white hover:text-primary transition-all duration-300 cursor-default">{s}</span>
                   ))}
                 </div>
@@ -704,7 +874,7 @@ export default function Portfolio() {
                   {t.pedigree.kinetic}
                 </h3>
                 <div className="flex flex-wrap gap-3">
-                  {['Three.js', 'GSAP Animation', 'GLSL Shaders', 'Canvas API', 'Motion Design'].map(s => (
+                  {['Node.js / Express.js', 'PHP / Laravel', 'SQL Server / MySQL', 'REST APIs', 'VB.NET'].map(s => (
                     <span key={s} className="px-5 py-3 bg-accent-gold/20 text-accent-gold border border-accent-gold/30 font-bold rounded-xl text-sm hover:scale-110 hover:bg-accent-gold hover:text-black transition-all duration-300 cursor-default">{s}</span>
                   ))}
                 </div>
@@ -715,7 +885,7 @@ export default function Portfolio() {
                   {t.pedigree.tools}
                 </h3>
                 <div className="flex flex-wrap gap-3">
-                  {['Figma', 'Vite / Webpack', 'Docker', 'Git / CI/CD', 'Storybook'].map(s => (
+                  {['Git / GitFlow / GitLab', 'Agile / Scrum', 'ESLint', 'Chart.js', 'Responsive Design'].map(s => (
                     <span key={s} className="px-5 py-3 bg-zinc-800 text-zinc-300 font-bold rounded-xl text-sm hover:scale-110 hover:bg-zinc-700 transition-all duration-300 cursor-default">{s}</span>
                   ))}
                 </div>
@@ -798,14 +968,16 @@ export default function Portfolio() {
           
           <div className="flex flex-wrap justify-center gap-8 md:gap-16 mt-12">
             {[
-              { name: 'Github', icon: <Github size={20} /> },
-              { name: 'LinkedIn', icon: <Linkedin size={20} /> },
-              { name: 'Gmail', icon: <Mail size={20} /> },
-              { name: 'WhatsApp', icon: <Phone size={20} /> }
+              { name: 'Website', icon: <Globe size={20} />, href: 'https://www.loicduong.dev' },
+              { name: 'LinkedIn', icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/in/loicduong' },
+              { name: 'Email', icon: <Mail size={20} />, href: 'mailto:dploc96@gmail.com' },
+              { name: 'Phone', icon: <Phone size={20} />, href: 'tel:0842575139' }
             ].map(social => (
               <a 
                 key={social.name} 
-                href="#" 
+                href={social.href} 
+                target={social.name === 'Email' || social.name === 'Phone' ? '_self' : '_blank'}
+                rel="noopener noreferrer"
                 aria-label={`Visit our ${social.name} profile`}
                 className="flex items-center gap-2 text-zinc-400 hover:text-primary transition-colors font-bold uppercase tracking-widest text-sm group focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
               >

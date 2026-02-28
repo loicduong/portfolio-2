@@ -9,8 +9,8 @@
     "ready": "READY"
   },
   "hero": {
-    "title": "Year of the Horse: Bending the Web",
-    "subtitle": "A Frontend Developer fusing kinetic energy with bold CSS experimentation. Crafting digital experiences that move with purpose and power.",
+    "title": "Loc Duong",
+    "subtitle": "Frontend Developer with 5+ years of experience in web development. Expertise includes: VueJS, NuxtJS, Bootstrap, Tailwind, JavaScript, TypeScript, ...",
     "explore": "EXPLORE THE STABLE",
     "download": "DOWNLOAD CV",
     "generating": "GENERATING...",
@@ -30,9 +30,11 @@
   },
   "pedigree": {
     "title": "Pedigree",
-    "arsenal": "CORE ARSENAL",
-    "kinetic": "KINETIC & CREATIVE",
-    "tools": "STABLE TOOLS"
+    "arsenal": "FRONTEND ARSENAL",
+    "kinetic": "BACKEND & DATABASE",
+    "tools": "TOOLS & METHODOLOGIES",
+    "softSkills": "TOP SKILLS",
+    "languages": "LANGUAGES"
   },
   "archive": {
     "title": "The Archive",
