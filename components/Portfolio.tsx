@@ -62,6 +62,7 @@ const SafeImage = ({ src, alt, fill, className, ...props }: any) => {
 const PROJECTS = [
   {
     id: 1,
+    slug: 'home-renovation-service-management',
     title: 'Home Renovation Service Management',
     date: '2025-03-01',
     description: {
@@ -83,6 +84,7 @@ const PROJECTS = [
   },
   {
     id: 2,
+    slug: 'vite-plugin-vue-layouts-next',
     title: 'Vite Plugin Vue Layouts Next',
     date: '2025-02-01',
     description: {
@@ -104,6 +106,7 @@ const PROJECTS = [
   },
   {
     id: 3,
+    slug: 'trading-user-management',
     title: 'Trading User Management',
     date: '2025-01-01',
     description: {
@@ -125,6 +128,7 @@ const PROJECTS = [
   },
   {
     id: 4,
+    slug: 'sugame',
     title: 'SugaMe',
     date: '2022-05-01',
     description: {
@@ -146,6 +150,7 @@ const PROJECTS = [
   },
   {
     id: 5,
+    slug: 'vue-boilerplate-internal',
     title: 'Vue Boilerplate (Internal)',
     date: '2023-10-01',
     description: {
@@ -167,6 +172,7 @@ const PROJECTS = [
   },
   {
     id: 6,
+    slug: 'html-boilerplate-internal',
     title: 'HTML Boilerplate (Internal)',
     date: '2023-11-01',
     description: {
@@ -188,6 +194,7 @@ const PROJECTS = [
   },
   {
     id: 7,
+    slug: 'device-location-management',
     title: 'Device Location Management',
     date: '2024-08-01',
     description: {
@@ -209,6 +216,7 @@ const PROJECTS = [
   },
   {
     id: 8,
+    slug: 'patient-management',
     title: 'Patient Management',
     date: '2024-05-01',
     description: {
@@ -230,6 +238,7 @@ const PROJECTS = [
   },
   {
     id: 9,
+    slug: 'telecommunications-business',
     title: 'Telecommunications Business',
     date: '2024-08-01',
     description: {
@@ -251,6 +260,7 @@ const PROJECTS = [
   },
   {
     id: 10,
+    slug: 'w3s-cli-internal',
     title: 'W3S CLI (Internal)',
     date: '2024-06-01',
     description: {
@@ -272,6 +282,7 @@ const PROJECTS = [
   },
   {
     id: 11,
+    slug: 'walaclub',
     title: 'WalaClub',
     date: '2024-02-01',
     description: {
@@ -293,6 +304,7 @@ const PROJECTS = [
   },
   {
     id: 12,
+    slug: 'vietnam-wine-business',
     title: 'Vietnam Wine Business',
     date: '2024-05-01',
     description: {
@@ -314,6 +326,7 @@ const PROJECTS = [
   },
   {
     id: 13,
+    slug: 'yeahfit',
     title: 'Yeahfit',
     date: '2023-03-01',
     description: {
@@ -335,6 +348,7 @@ const PROJECTS = [
   },
   {
     id: 14,
+    slug: 'camly',
     title: 'Camly',
     date: '2021-06-01',
     description: {
@@ -356,6 +370,7 @@ const PROJECTS = [
   },
   {
     id: 15,
+    slug: 'tien-tien',
     title: 'Tien Tien',
     date: '2019-07-01',
     description: {
@@ -411,8 +426,27 @@ export default function Portfolio() {
 
   const [activeCategory, setActiveCategory] = useState('ALL');
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<any>(null);
-  const [selectedArchiveImage, setSelectedArchiveImage] = useState<any>(null);
+  const [internalSlug, setInternalSlug] = useState<string | null>((params?.slug as string) || null);
+  const [internalArchiveId, setInternalArchiveId] = useState<string | null>((params?.id as string) || null);
+  
+  useEffect(() => {
+    const handlePopState = () => {
+      const path = window.location.pathname;
+      const projectMatch = path.match(/\/projects\/([^/]+)/);
+      const archiveMatch = path.match(/\/archive\/([^/]+)/);
+      setInternalSlug(projectMatch ? projectMatch[1] : null);
+      setInternalArchiveId(archiveMatch ? archiveMatch[1] : null);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const selectedProject = internalSlug 
+    ? PROJECTS.find(p => p.slug === internalSlug) 
+    : null;
+  const selectedArchiveImage = internalArchiveId
+    ? ARCHIVE_IMAGES.find(img => img.id === internalArchiveId)
+    : null;
   const [isHoveringExplore, setIsHoveringExplore] = useState(false);
   const [randomProject, setRandomProject] = useState(() => PROJECTS[Math.floor(Math.random() * PROJECTS.length)]);
   const [downloadState, setDownloadState] = useState<'idle' | 'loading' | 'success'>('idle');
@@ -420,6 +454,30 @@ export default function Portfolio() {
   const [showAll, setShowAll] = useState(false);
   const [archiveCount, setArchiveCount] = useState(4);
   const [searchQuery, setSearchQuery] = useState('');
+
+  const openProject = (project: any) => {
+    const newPath = `/${lang.toLowerCase()}/projects/${project.slug}`;
+    window.history.pushState({ slug: project.slug }, '', newPath);
+    setInternalSlug(project.slug);
+  };
+
+  const closeProject = () => {
+    const newPath = `/${lang.toLowerCase()}`;
+    window.history.pushState(null, '', newPath);
+    setInternalSlug(null);
+  };
+
+  const openArchive = (image: any) => {
+    const newPath = `/${lang.toLowerCase()}/archive/${image.id}`;
+    window.history.pushState({ archiveId: image.id }, '', newPath);
+    setInternalArchiveId(image.id);
+  };
+
+  const closeArchive = () => {
+    const newPath = `/${lang.toLowerCase()}`;
+    window.history.pushState(null, '', newPath);
+    setInternalArchiveId(null);
+  };
 
   const t = TRANSLATIONS[lang];
 
@@ -610,11 +668,11 @@ export default function Portfolio() {
                         tabIndex={0}
                         aria-label={`View details for ${randomProject.title}`}
                         className="relative aspect-video rounded-xl overflow-hidden mb-3 cursor-pointer group/peek focus-visible:outline-2 focus-visible:outline-primary"
-                        onClick={() => setSelectedProject(randomProject)}
+                        onClick={() => openProject(randomProject)}
                         onKeyDown={(e) => {
                           if (e.key === 'Enter' || e.key === ' ') {
                             e.preventDefault();
-                            setSelectedProject(randomProject);
+                            openProject(randomProject);
                           }
                         }}
                       >
@@ -728,11 +786,11 @@ export default function Portfolio() {
                 role="button"
                 tabIndex={0}
                 aria-label={`View details for ${project.title}`}
-                onClick={() => setSelectedProject(project)}
+                onClick={() => openProject(project)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    setSelectedProject(project);
+                    openProject(project);
                   }
                 }}
                 className={`${project.size === 'large' ? 'md:col-span-8' : 'md:col-span-4'} group relative h-[500px] bg-zinc-900 rounded-2xl overflow-hidden border border-white/10 cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4`}
@@ -944,7 +1002,7 @@ export default function Portfolio() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 key={item.id} 
-                onClick={() => setSelectedArchiveImage(item)}
+                onClick={() => openArchive(item)}
                 className={`rounded-2xl overflow-hidden group relative cursor-pointer ${i % 3 === 0 ? 'aspect-[3/4]' : 'aspect-square'}`}
               >
                 <SafeImage 
@@ -1048,7 +1106,7 @@ export default function Portfolio() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setSelectedArchiveImage(null)}
+              onClick={closeArchive}
               className="absolute inset-0 bg-black/95 backdrop-blur-xl cursor-pointer"
             />
             <motion.div 
@@ -1058,7 +1116,7 @@ export default function Portfolio() {
               className="relative w-full max-w-[95vw] h-[90vh] bg-[#0a0404] rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row pointer-events-none border border-primary/20"
             >
               <button 
-                onClick={() => setSelectedArchiveImage(null)}
+                onClick={closeArchive}
                 aria-label="Close modal"
                 className="absolute top-6 right-6 z-10 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary cursor-pointer pointer-events-auto"
               >
@@ -1105,7 +1163,7 @@ export default function Portfolio() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setSelectedProject(null)}
+              onClick={closeProject}
               className="absolute inset-0 bg-black/90 backdrop-blur-md"
             />
             <motion.div 
@@ -1115,7 +1173,7 @@ export default function Portfolio() {
               className="relative w-full max-w-[95vw] h-[90vh] bg-[#0a0404] rounded-3xl overflow-hidden shadow-2xl border border-primary/20 flex flex-col md:flex-row"
             >
               <button 
-                onClick={() => setSelectedProject(null)}
+                onClick={closeProject}
                 aria-label="Close modal"
                 className="absolute top-6 right-6 z-10 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary cursor-pointer"
               >
