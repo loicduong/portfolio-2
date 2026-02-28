@@ -1048,7 +1048,7 @@ export default function Portfolio() {
           
           <div className="flex flex-wrap justify-center gap-8 md:gap-16 mt-12">
             {[
-              { name: 'Github', icon: <Github size={20} />, href: 'https://github.com/dploc96' },
+              { name: 'Github', icon: <Github size={20} />, href: 'https://github.com/loicduong' },
               { name: 'LinkedIn', icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/in/loicduong' },
               { name: 'Email', icon: <Mail size={20} />, href: 'mailto:dploc96@gmail.com' },
               { name: 'Phone', icon: <Phone size={20} />, href: 'tel:0842575139' }
