@@ -15,8 +15,8 @@ import {
   Wrench,
   Github,
   Linkedin,
-  Dribbble,
-  Twitter,
+  Mail,
+  Phone,
   ChevronDown,
   ArrowUp,
   X,
@@ -269,11 +269,9 @@ export default function Portfolio() {
   const [randomProject, setRandomProject] = useState(() => PROJECTS[Math.floor(Math.random() * PROJECTS.length)]);
   const [downloadState, setDownloadState] = useState<'idle' | 'loading' | 'success'>('idle');
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
-  const [explorePos, setExplorePos] = useState({ x: 0, y: 0 });
   const [showAll, setShowAll] = useState(false);
   const [archiveCount, setArchiveCount] = useState(4);
   const [searchQuery, setSearchQuery] = useState('');
-  const exploreRef = useRef<HTMLDivElement>(null);
 
   const t = TRANSLATIONS[lang];
 
@@ -288,16 +286,6 @@ export default function Portfolio() {
     
     router.push(newPath);
   };
-
-  const handleExploreMouseMove = (e: React.MouseEvent) => {
-    if (!exploreRef.current) return;
-    const { left, top, width, height } = exploreRef.current.getBoundingClientRect();
-    const x = e.clientX - (left + width / 2);
-    const y = e.clientY - (top + height / 2);
-    setExplorePos({ x: x * 0.3, y: y * 0.3 });
-  };
-
-  const resetExplorePos = () => setExplorePos({ x: 0, y: 0 });
 
   const shuffleProject = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -407,7 +395,12 @@ export default function Portfolio() {
       <section className="relative min-h-screen flex flex-col lg:grid lg:grid-cols-12 p-4 md:p-8 gap-4 overflow-hidden">
         <div className="lg:col-span-4 z-10 pt-12">
           <div className="flex items-center gap-4 text-primary">
-            <Zap size={48} strokeWidth={3} />
+            <svg className="h-12 w-auto" viewBox="0 0 97 156" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M48.0423 -2.86102e-06H36.1596V24H48.0183C48.0263 24 48.0343 24 48.0423 24C61.2969 24 72.0423 34.7453 72.0423 48C72.0423 61.2547 61.2969 72 48.0423 72C48.0343 72 48.0263 72 48.0183 72H36.1596V96H48.0423C74.5516 96 96.0423 74.5093 96.0423 48C96.0423 21.4907 74.5516 -2.86102e-06 48.0423 -2.86102e-06Z" fill="currentColor"/>
+              <path d="M0 155.334H24V107.941H0V155.334Z" fill="currentColor"/>
+              <path d="M96.0426 155.334H35.5627V131.334H96.0426V155.334Z" fill="currentColor"/>
+              <path d="M24.1595 72H24.0195V24H24.1595V-2.86102e-06H0.0421448V96H24.1595V72Z" fill="currentColor"/>
+            </svg>
             <h1 className="text-4xl font-black tracking-tighter uppercase">HORSE/FE</h1>
           </div>
         </div>
@@ -415,7 +408,7 @@ export default function Portfolio() {
         <div className="lg:col-start-4 lg:col-span-9 lg:row-start-1 lg:row-span-4 relative group min-h-[50vh] lg:min-h-0">
           <div className="w-full h-full bg-zinc-900 rounded-2xl overflow-hidden relative border border-primary/20">
             <SafeImage 
-              src="https://picsum.photos/seed/horse-hero/1920/1080" 
+              src={ARCHIVE_IMAGES[0].url} 
               alt="Hero" 
               fill 
               className="object-cover grayscale group-hover:grayscale-0 opacity-40"
@@ -442,25 +435,18 @@ export default function Portfolio() {
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 relative">
               <div 
-                ref={exploreRef}
-                onMouseMove={handleExploreMouseMove}
-                onMouseLeave={() => {
-                  setIsHoveringExplore(false);
-                  resetExplorePos();
-                }}
+                onMouseLeave={() => setIsHoveringExplore(false)}
                 className="relative group/explore"
               >
-                <motion.a 
+                <a 
                   href="#projects"
-                  animate={{ x: explorePos.x, y: explorePos.y }}
-                  transition={{ type: 'spring', stiffness: 150, damping: 15 }}
                   onMouseEnter={() => setIsHoveringExplore(true)}
                   className="bg-primary hover:bg-primary/80 text-white font-bold px-8 py-4 rounded-full flex items-center justify-center gap-2 group transition-all relative z-10"
                 >
                   {t.hero.explore}
                   <span className="bg-white/20 px-2 py-0.5 rounded text-[10px]">{PROJECTS.length}</span>
                   <ArrowRight className="group-hover:translate-x-2 transition-transform" size={20} />
-                </motion.a>
+                </a>
 
                 {/* Quick Peek Tooltip */}
                 <AnimatePresence>
@@ -814,8 +800,8 @@ export default function Portfolio() {
             {[
               { name: 'Github', icon: <Github size={20} /> },
               { name: 'LinkedIn', icon: <Linkedin size={20} /> },
-              { name: 'Dribbble', icon: <Dribbble size={20} /> },
-              { name: 'Twitter', icon: <Twitter size={20} /> }
+              { name: 'Gmail', icon: <Mail size={20} /> },
+              { name: 'WhatsApp', icon: <Phone size={20} /> }
             ].map(social => (
               <a 
                 key={social.name} 
@@ -831,7 +817,12 @@ export default function Portfolio() {
         </div>
         
         <div className="absolute -bottom-32 -right-32 opacity-10 pointer-events-none">
-          <Zap size={600} className="text-primary" />
+          <svg className="h-[600px] w-auto text-primary" viewBox="0 0 97 156" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M48.0423 -2.86102e-06H36.1596V24H48.0183C48.0263 24 48.0343 24 48.0423 24C61.2969 24 72.0423 34.7453 72.0423 48C72.0423 61.2547 61.2969 72 48.0423 72C48.0343 72 48.0263 72 48.0183 72H36.1596V96H48.0423C74.5516 96 96.0423 74.5093 96.0423 48C96.0423 21.4907 74.5516 -2.86102e-06 48.0423 -2.86102e-06Z" fill="currentColor"/>
+            <path d="M0 155.334H24V107.941H0V155.334Z" fill="currentColor"/>
+            <path d="M96.0426 155.334H35.5627V131.334H96.0426V155.334Z" fill="currentColor"/>
+            <path d="M24.1595 72H24.0195V24H24.1595V-2.86102e-06H0.0421448V96H24.1595V72Z" fill="currentColor"/>
+          </svg>
         </div>
       </footer>
 
@@ -870,7 +861,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-5xl max-h-[90vh] bg-[#0a0404] rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row pointer-events-none border border-primary/20"
+              className="relative w-full max-w-[95vw] h-[90vh] bg-[#0a0404] rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row pointer-events-none border border-primary/20"
             >
               <button 
                 onClick={() => setSelectedArchiveImage(null)}
@@ -880,16 +871,16 @@ export default function Portfolio() {
                 <X size={20} />
               </button>
 
-              <div className="relative w-full md:w-1/2 h-64 md:h-auto pointer-events-auto">
+              <div className="relative w-full md:w-[70%] h-1/2 md:h-full pointer-events-auto bg-black/50">
                 <SafeImage 
                   src={selectedArchiveImage.url} 
                   alt={(selectedArchiveImage.title as any)[lang]} 
                   fill 
-                  className="object-cover"
+                  className="object-contain p-4 md:p-8"
                 />
               </div>
               
-              <div className="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto no-scrollbar pointer-events-auto flex flex-col justify-center">
+              <div className="w-full md:w-[30%] h-1/2 md:h-full p-8 md:p-12 overflow-y-auto no-scrollbar pointer-events-auto flex flex-col justify-center">
                 <div className="flex items-center gap-2 mb-6">
                   <span className="text-xs font-mono text-zinc-400 border border-zinc-700 px-3 py-1 rounded-full">
                     {selectedArchiveImage.year}
@@ -927,7 +918,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-5xl max-h-[90vh] bg-[#0a0404] rounded-3xl overflow-hidden shadow-2xl border border-primary/20 flex flex-col md:flex-row"
+              className="relative w-full max-w-[95vw] h-[90vh] bg-[#0a0404] rounded-3xl overflow-hidden shadow-2xl border border-primary/20 flex flex-col md:flex-row"
             >
               <button 
                 onClick={() => setSelectedProject(null)}
@@ -937,16 +928,16 @@ export default function Portfolio() {
                 <X size={20} />
               </button>
 
-              <div className="w-full md:w-1/2 h-64 md:h-auto relative">
+              <div className="w-full md:w-[70%] h-1/2 md:h-full relative bg-black/50">
                 <SafeImage 
                   src={selectedProject.image} 
                   alt={selectedProject.title} 
                   fill 
-                  className="object-cover"
+                  className="object-contain p-4 md:p-8"
                 />
               </div>
 
-              <div className="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto no-scrollbar">
+              <div className="w-full md:w-[30%] h-1/2 md:h-full p-8 md:p-12 overflow-y-auto no-scrollbar">
                 <div className="flex items-center gap-2 mb-6">
                   <span className="text-xs font-mono text-zinc-400 border border-zinc-700 px-3 py-1 rounded-full">
                     {new Date(selectedProject.date).getFullYear()}
