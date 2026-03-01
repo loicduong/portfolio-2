@@ -1,4 +1,4 @@
-import type {Metadata} from 'next';
+import type { Metadata, ResolvingMetadata } from 'next';
 import { Space_Grotesk, Cormorant_Garamond } from 'next/font/google';
 import '../globals.css';
 
@@ -14,10 +14,64 @@ const cormorant = Cormorant_Garamond({
   variable: '--font-serif',
 });
 
-export const metadata: Metadata = {
-  title: 'Loc Duong | Frontend Web Developer',
-  description: 'Frontend Developer with 5+ years of experience in web development. Expertise includes: VueJS, NuxtJS, Bootstrap, Tailwind, JavaScript, TypeScript.',
+type Props = {
+  params: Promise<{ lang: string }>;
 };
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { lang } = await params;
+  const isVN = lang === 'vn';
+  const isJP = lang === 'jp';
+
+  const title = isVN 
+    ? 'Lộc Dương | Lập trình viên Frontend' 
+    : isJP 
+      ? 'Loc Duong | フロントエンドエンジニア' 
+      : 'Loc Duong | Frontend Web Developer';
+  
+  const description = isVN
+    ? 'Lập trình viên Frontend với hơn 5 năm kinh nghiệm. Chuyên gia về VueJS, NuxtJS, JavaScript, TypeScript và tối ưu hóa hiệu suất web.'
+    : isJP
+      ? '5年以上の経験を持つフロントエンドエンジニア。VueJS、NuxtJS、JavaScript、TypeScript、ウェブパフォーマンス最適化の専門知識を持っています。'
+      : 'Frontend Developer with 5+ years of experience. Expertise in VueJS, NuxtJS, JavaScript, TypeScript, and web performance optimization.';
+
+  return {
+    title,
+    description,
+    keywords: ['Loc Duong', 'Lộc Dương', 'Frontend Developer', 'VueJS Developer', 'NuxtJS', 'TypeScript', 'Web Developer Portfolio', 'Lập trình viên Frontend'],
+    authors: [{ name: 'Loc Duong' }],
+    creator: 'Loc Duong',
+    openGraph: {
+      title,
+      description,
+      url: `https://ais-dev-vzqyjllpvmmkkyfg6q2hft-284222860959.asia-east1.run.app/${lang}`,
+      siteName: 'Loc Duong Portfolio',
+      locale: lang === 'vn' ? 'vi_VN' : lang === 'jp' ? 'ja_JP' : 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      creator: '@loicduong',
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    alternates: {
+      canonical: `https://ais-dev-vzqyjllpvmmkkyfg6q2hft-284222860959.asia-east1.run.app/${lang}`,
+      languages: {
+        'en-US': 'https://ais-dev-vzqyjllpvmmkkyfg6q2hft-284222860959.asia-east1.run.app/en',
+        'vi-VN': 'https://ais-dev-vzqyjllpvmmkkyfg6q2hft-284222860959.asia-east1.run.app/vn',
+        'ja-JP': 'https://ais-dev-vzqyjllpvmmkkyfg6q2hft-284222860959.asia-east1.run.app/jp',
+      },
+    },
+  };
+}
 
 export default async function RootLayout({
   children,
@@ -27,8 +81,28 @@ export default async function RootLayout({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
+  
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Loc Duong',
+    url: 'https://ais-dev-vzqyjllpvmmkkyfg6q2hft-284222860959.asia-east1.run.app',
+    jobTitle: 'Frontend Web Developer',
+    sameAs: [
+      'https://github.com/loicduong',
+      'https://www.linkedin.com/in/loicduong',
+    ],
+    knowsAbout: ['VueJS', 'NuxtJS', 'JavaScript', 'TypeScript', 'Web Development', 'Frontend Development'],
+  };
+
   return (
     <html lang={lang} className={`${spaceGrotesk.variable} ${cormorant.variable} dark`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="bg-zinc-50 dark:bg-[#0a0404] text-zinc-900 dark:text-zinc-100 antialiased" suppressHydrationWarning>
         {children}
       </body>

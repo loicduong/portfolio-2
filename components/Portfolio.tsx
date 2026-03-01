@@ -548,10 +548,11 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-[#0a0404] text-white">
       {/* Navigation & Controls */}
-      <div className="fixed top-6 right-6 z-50 flex items-center gap-4">
+      <header className="fixed top-6 right-6 z-50 flex items-center gap-4">
         <button 
-          onClick={() => window.location.href = 'mailto:hello@example.com'}
+          onClick={() => window.location.href = 'mailto:dploc96@gmail.com'}
           className="hidden md:flex items-center gap-2 bg-primary hover:bg-white hover:text-black text-white backdrop-blur-xl border border-primary/50 hover:border-white rounded-full px-6 py-2.5 text-xs font-black tracking-[0.2em] transition-all duration-300 uppercase cursor-pointer shadow-[0_0_20px_rgba(242,13,13,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] hover:scale-105 active:scale-95"
+          aria-label={t.footer.talk}
         >
           <MessageSquare size={16} />
           {t.footer.talk}
@@ -560,6 +561,9 @@ export default function Portfolio() {
           <button 
             onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
             className="bg-black/40 backdrop-blur-xl border border-primary/20 rounded-full px-4 py-2 flex items-center gap-2 text-xs font-bold tracking-widest hover:border-primary transition-colors cursor-pointer"
+            aria-expanded={isLangMenuOpen}
+            aria-haspopup="true"
+            aria-label="Change language"
           >
             {lang} <ChevronDown size={14} className={`transition-transform ${isLangMenuOpen ? 'rotate-180' : ''}`} />
           </button>
@@ -585,10 +589,10 @@ export default function Portfolio() {
             )}
           </AnimatePresence>
         </div>
-      </div>
+      </header>
 
       {/* Floating Menu Labels */}
-      <nav className="fixed inset-0 pointer-events-none z-40 hidden lg:block">
+      <nav className="fixed inset-0 pointer-events-none z-40 hidden lg:block" aria-label="Main navigation">
         <div className="relative w-full h-full">
           <a href="#projects" className="pointer-events-auto absolute top-10 left-10 -rotate-12 hover:scale-110 transition-transform bg-primary px-6 py-2 rounded-full font-bold text-white shadow-xl shadow-primary/20">{t.nav.projects}</a>
           <a href="#experience" className="pointer-events-auto absolute top-40 right-10 rotate-12 hover:scale-110 transition-transform bg-[#4a0404] border border-primary/30 px-6 py-2 rounded-full font-bold text-white">{t.nav.experience}</a>
@@ -812,7 +816,7 @@ export default function Portfolio() {
                       </span>
                     ))}
                   </div>
-                  <h4 className="text-3xl font-bold text-white mb-2">{project.title}</h4>
+                  <h3 className="text-3xl font-bold text-white mb-2">{project.title}</h3>
                   <p className="text-zinc-300 max-w-sm">{(project.description as any)[lang]}</p>
                 </div>
               </motion.div>
