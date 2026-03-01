@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://ais-dev-vzqyjllpvmmkkyfg6q2hft-284222860959.asia-east1.run.app';
+  const baseUrl = 'https://loicduong.dev';
   const languages = ['en', 'vn', 'jp'];
   
   const routes = languages.map((lang) => ({

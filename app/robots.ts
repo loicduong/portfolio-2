@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://ais-dev-vzqyjllpvmmkkyfg6q2hft-284222860959.asia-east1.run.app/sitemap.xml',
+    sitemap: 'https://loicduong.dev/sitemap.xml',
   };
 }

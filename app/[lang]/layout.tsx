@@ -47,7 +47,7 @@ export async function generateMetadata(
     openGraph: {
       title,
       description,
-      url: `https://ais-dev-vzqyjllpvmmkkyfg6q2hft-284222860959.asia-east1.run.app/${lang}`,
+      url: `https://loicduong.dev/${lang}`,
       siteName: 'Loc Duong Portfolio',
       locale: lang === 'vn' ? 'vi_VN' : lang === 'jp' ? 'ja_JP' : 'en_US',
       type: 'website',
@@ -63,11 +63,11 @@ export async function generateMetadata(
       follow: true,
     },
     alternates: {
-      canonical: `https://ais-dev-vzqyjllpvmmkkyfg6q2hft-284222860959.asia-east1.run.app/${lang}`,
+      canonical: `https://loicduong.dev/${lang}`,
       languages: {
-        'en-US': 'https://ais-dev-vzqyjllpvmmkkyfg6q2hft-284222860959.asia-east1.run.app/en',
-        'vi-VN': 'https://ais-dev-vzqyjllpvmmkkyfg6q2hft-284222860959.asia-east1.run.app/vn',
-        'ja-JP': 'https://ais-dev-vzqyjllpvmmkkyfg6q2hft-284222860959.asia-east1.run.app/jp',
+        'en-US': 'https://loicduong.dev/en',
+        'vi-VN': 'https://loicduong.dev/vn',
+        'ja-JP': 'https://loicduong.dev/jp',
       },
     },
   };
@@ -86,7 +86,7 @@ export default async function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Loc Duong',
-    url: 'https://ais-dev-vzqyjllpvmmkkyfg6q2hft-284222860959.asia-east1.run.app',
+    url: 'https://loicduong.dev',
     jobTitle: 'Frontend Web Developer',
     sameAs: [
       'https://github.com/loicduong',
