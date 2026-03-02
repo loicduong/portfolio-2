@@ -1,6 +1,7 @@
 import type { Metadata, ResolvingMetadata } from 'next';
 import { Space_Grotesk, Cormorant_Garamond } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import '../globals.css';
 
 const spaceGrotesk = Space_Grotesk({
@@ -107,6 +108,7 @@ export default async function RootLayout({
       <body className="bg-zinc-50 dark:bg-[#0a0404] text-zinc-900 dark:text-zinc-100 antialiased" suppressHydrationWarning>
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
