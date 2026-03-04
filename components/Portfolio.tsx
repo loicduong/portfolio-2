@@ -550,7 +550,7 @@ export default function Portfolio() {
       {/* Navigation & Controls */}
       <header className="fixed top-6 right-6 z-50 flex items-center gap-4">
         <button 
-          onClick={() => window.location.href = 'mailto:dploc96@gmail.com'}
+          onClick={() => window.location.href = 'mailto:hi@loicduong.dev'}
           className="hidden md:flex items-center gap-2 bg-primary hover:bg-white hover:text-black text-white backdrop-blur-xl border border-primary/50 hover:border-white rounded-full px-6 py-2.5 text-xs font-black tracking-[0.2em] transition-all duration-300 uppercase cursor-pointer shadow-[0_0_20px_rgba(242,13,13,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] hover:scale-105 active:scale-95"
           aria-label={t.footer.talk}
         >
@@ -1054,7 +1054,7 @@ export default function Portfolio() {
             {[
               { name: 'Github', icon: <Github size={20} />, href: 'https://github.com/loicduong' },
               { name: 'LinkedIn', icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/in/loicduong' },
-              { name: 'Email', icon: <Mail size={20} />, href: 'mailto:dploc96@gmail.com' },
+              { name: 'Email', icon: <Mail size={20} />, href: 'mailto:hi@loicduong.dev' },
               { name: 'Phone', icon: <Phone size={20} />, href: 'tel:0842575139' }
             ].map(social => (
               <a 
