@@ -739,7 +739,7 @@ export default function Portfolio() {
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-16">
-          <div className="flex flex-wrap items-center gap-3 overflow-x-auto no-scrollbar pb-4 max-w-full md:max-w-[50%]">
+          <div className="flex flex-wrap items-center gap-3 overflow-x-auto no-scrollbar pb-4 pt-2 px-2 max-w-full md:max-w-[50%]">
             {CATEGORIES.map(cat => (
               <button 
                 key={cat}
