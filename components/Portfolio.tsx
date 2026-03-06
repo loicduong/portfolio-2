@@ -728,7 +728,7 @@ export default function Portfolio() {
       <section id="projects" className="py-24 px-6 md:px-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 border-b border-primary/20 pb-12 gap-8">
           <div className="max-w-3xl">
-            <h3 className="text-6xl md:text-9xl font-black text-stroke uppercase mb-6 opacity-20">{t.projects.title}</h3>
+            <h3 className="text-6xl md:text-9xl font-black text-stroke text-white/40 uppercase mb-6">{t.projects.title}</h3>
             <p className="text-zinc-400 text-xl md:text-2xl font-serif italic">
               {t.projects.subtitle}
             </p>
@@ -1031,7 +1031,7 @@ export default function Portfolio() {
       {/* Footer */}
       <footer className="py-32 px-6 md:px-12 border-t border-primary/20 relative overflow-hidden bg-[#0a0404]">
         <div className="flex flex-col items-center text-center gap-12 relative z-10">
-          <h4 className="text-6xl md:text-[10rem] font-black text-stroke uppercase leading-none opacity-10">{t.footer.title}</h4>
+          <h4 className="text-6xl md:text-[10rem] font-black text-stroke text-white/40 uppercase leading-none">{t.footer.title}</h4>
           <p className="text-zinc-400 max-w-xl text-xl md:text-2xl font-serif italic">
             {t.footer.subtitle}
           </p>
