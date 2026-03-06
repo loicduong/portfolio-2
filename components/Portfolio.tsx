@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useMotionValue, useSpring } from 'motion/react';
 import { useParams, useRouter, usePathname } from 'next/navigation';
 import { 
   ArrowRight, 
@@ -385,6 +385,34 @@ export default function Portfolio() {
   const langMenuRef = useRef<HTMLDivElement>(null);
   const [showAll, setShowAll] = useState(false);
   const [archiveCount, setArchiveCount] = useState(4);
+  const [isHovering, setIsHovering] = useState(false);
+
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
+  const cursorXInner = useMotionValue(-100);
+  const cursorYInner = useMotionValue(-100);
+  
+  const cursorXSpring = useSpring(cursorX, { damping: 25, stiffness: 700 });
+  const cursorYSpring = useSpring(cursorY, { damping: 25, stiffness: 700 });
+  const cursorXInnerSpring = useSpring(cursorXInner, { damping: 40, stiffness: 1000 });
+  const cursorYInnerSpring = useSpring(cursorYInner, { damping: 40, stiffness: 1000 });
+
+  useEffect(() => {
+    const moveCursor = (e: MouseEvent) => {
+      cursorX.set(e.clientX - 16);
+      cursorY.set(e.clientY - 16);
+      cursorXInner.set(e.clientX - 4);
+      cursorYInner.set(e.clientY - 4);
+      
+      const target = e.target as HTMLElement;
+      const isInteractive = target.closest('button, a, input, textarea, [role="button"], .cursor-pointer');
+      setIsHovering(!!isInteractive);
+    };
+    window.addEventListener('mousemove', moveCursor);
+    return () => {
+      window.removeEventListener('mousemove', moveCursor);
+    };
+  }, [cursorX, cursorY, cursorXInner, cursorYInner]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -533,7 +561,32 @@ export default function Portfolio() {
   const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 4);
 
   return (
-    <div className="min-h-screen bg-[#0a0404] text-white">
+    <div className="min-h-screen bg-[#0a0404] text-white md:cursor-none md:[&_*]:cursor-none">
+      {/* Custom Cursor */}
+      <motion.div
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border-2 border-primary pointer-events-none z-[9999] mix-blend-difference hidden md:block"
+        style={{
+          x: cursorXSpring,
+          y: cursorYSpring,
+        }}
+        animate={{
+          scale: isHovering ? 1.5 : 1,
+          backgroundColor: isHovering ? 'rgba(242, 13, 13, 0.1)' : 'transparent',
+        }}
+        transition={{ duration: 0.2 }}
+      />
+      <motion.div
+        className="fixed top-0 left-0 w-2 h-2 bg-primary rounded-full pointer-events-none z-[9999] mix-blend-difference hidden md:block"
+        style={{
+          x: cursorXInnerSpring,
+          y: cursorYInnerSpring,
+        }}
+        animate={{
+          scale: isHovering ? 0 : 1,
+        }}
+        transition={{ duration: 0.2 }}
+      />
+
       {/* Navigation & Controls */}
       <header className="fixed top-6 right-6 z-50 flex items-center gap-4">
         <button 
