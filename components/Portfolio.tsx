@@ -146,50 +146,6 @@ const PROJECTS = [
     repoLink: '#'
   },
   {
-    id: 5,
-    slug: 'vue-boilerplate-internal',
-    title: 'Vue Boilerplate (Internal)',
-    date: '2023-10-01',
-    description: {
-      EN: 'Internal Vue boilerplate.',
-      VN: 'Boilerplate Vue nội bộ.',
-      JP: '内部Vueボイラープレート。'
-    },
-    longDescription: {
-      EN: 'Associated with Teanis Technologies. Skills: ESLint, GitFlow, Front-End Development, Attention to Detail, Problem Solving, REST APIs, Web Applications, Node.js, Vue.js, State Management.',
-      VN: 'Liên kết với Teanis Technologies. Kỹ năng: Vue.js, Node.js, REST APIs.',
-      JP: 'Teanis Technologies関連。スキル：Vue.js、Node.js、REST API。'
-    },
-    tags: ['VUE.JS', 'NODE.JS', 'REST APIS'],
-    category: 'VUE.JS',
-    image: 'https://picsum.photos/seed/vue-boilerplate/800/800',
-    size: 'small',
-    demoLink: '#',
-    repoLink: '#'
-  },
-  {
-    id: 6,
-    slug: 'html-boilerplate-internal',
-    title: 'HTML Boilerplate (Internal)',
-    date: '2023-11-01',
-    description: {
-      EN: 'A boilerplate HTML for developing static web pages.',
-      VN: 'Một boilerplate HTML để phát triển các trang web tĩnh.',
-      JP: '静的ウェブページを開発するためのHTMLボイラープレート。'
-    },
-    longDescription: {
-      EN: 'A boilerplate HTML for developing static web pages for Web developers in team. Team size: 1. Skills: ESLint, GitFlow, Front-End Development, Attention to Detail, Problem Solving, Node.js.',
-      VN: 'Một boilerplate HTML để phát triển các trang web tĩnh cho các nhà phát triển web trong nhóm. Quy mô nhóm: 1.',
-      JP: 'チーム内のウェブ開発者向けの静的ウェブページ開発用HTMLボイラープレート。チームサイズ：1。'
-    },
-    tags: ['HTML', 'NODE.JS', 'FRONT-END'],
-    category: 'NODE.JS',
-    image: 'https://picsum.photos/seed/html-boilerplate/800/800',
-    size: 'small',
-    demoLink: '#',
-    repoLink: '#'
-  },
-  {
     id: 7,
     slug: 'device-location-management',
     title: 'Device Location Management',
@@ -251,28 +207,6 @@ const PROJECTS = [
     tags: ['VUE.JS', 'TYPESCRIPT', 'TAILWIND CSS'],
     category: 'VUE.JS',
     image: 'https://picsum.photos/seed/telecom/800/800',
-    size: 'small',
-    demoLink: '#',
-    repoLink: '#'
-  },
-  {
-    id: 10,
-    slug: 'w3s-cli-internal',
-    title: 'W3S CLI (Internal)',
-    date: '2024-06-01',
-    description: {
-      EN: 'A CLI tool that automatically generates a changelog based on commits.',
-      VN: 'Một công cụ CLI tự động tạo nhật ký thay đổi dựa trên các commit.',
-      JP: 'コミットに基づいて変更履歴を自動的に生成するCLIツール。'
-    },
-    longDescription: {
-      EN: 'A CLI tool that automatically generates a changelog based on commits for the web developers team. Type: Internal. Team size: 1. Skills: GitFlow, Attention to Detail, Problem Solving, Node.js. Links: NPM.',
-      VN: 'Một công cụ CLI tự động tạo nhật ký thay đổi dựa trên các commit cho nhóm phát triển web. Quy mô nhóm: 1.',
-      JP: 'ウェブ開発チーム向けに、コミットに基づいて変更履歴を自動的に生成するCLIツール。チームサイズ：1。'
-    },
-    tags: ['NODE.JS', 'CLI', 'NPM'],
-    category: 'NODE.JS',
-    image: 'https://picsum.photos/seed/w3s-cli/800/800',
     size: 'small',
     demoLink: '#',
     repoLink: '#'
