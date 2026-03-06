@@ -661,7 +661,7 @@ export default function Portfolio() {
                       initial={{ opacity: 0, y: 10, scale: 0.8 }}
                       animate={{ opacity: 1, y: -10, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.8 }}
-                      className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-56 bg-zinc-900 p-3 rounded-2xl shadow-2xl border border-primary/20 pointer-events-auto hidden md:block z-20"
+                      className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-56 bg-zinc-900 p-3 rounded-2xl shadow-2xl border border-primary/20 pointer-events-auto hidden md:block z-20 after:content-[''] after:absolute after:top-full after:left-0 after:w-full after:h-8"
                     >
                       <div 
                         role="button"
