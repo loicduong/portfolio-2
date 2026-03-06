@@ -974,7 +974,7 @@ export default function Portfolio() {
 
       {/* Archive Section */}
       <section id="library" className="py-32">
-        <div className="px-6 md:px-12 mb-20 flex flex-col items-end gap-6 text-right">
+        <div className="px-6 md:px-12 mb-20 flex flex-col items-start gap-6 text-left">
           <h3 className="text-6xl md:text-9xl font-black italic uppercase">{t.archive.title}</h3>
           <p className="text-zinc-400 font-mono text-sm max-w-xs hidden md:block leading-relaxed">
             {t.archive.subtitle}
