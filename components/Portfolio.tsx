@@ -32,25 +32,20 @@ import en from '../app/dictionaries/en.json';
 import vn from '../app/dictionaries/vn.json';
 import jp from '../app/dictionaries/jp.json';
 
-const SafeImage = ({ src, alt, fill, className, ...props }: any) => {
+const SafeImage = ({ src, alt, fill, className, priority, ...props }: any) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <div className="relative w-full h-full overflow-hidden bg-zinc-900/50">
-      <AnimatePresence>
-        {!isLoaded && (
-          <motion.div 
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="absolute inset-0 z-10 animate-shimmer"
-          />
-        )}
-      </AnimatePresence>
+      {!isLoaded && !priority && (
+        <div className="absolute inset-0 z-10 animate-shimmer bg-zinc-800/20" />
+      )}
       <Image
         src={src}
         alt={alt}
         fill={fill}
-        className={`transition-all duration-700 ease-out ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'} ${className}`}
+        priority={priority}
+        className={`transition-all duration-700 ease-out ${isLoaded || priority ? 'opacity-100 scale-100' : 'opacity-0 scale-105'} ${className}`}
         onLoad={() => setIsLoaded(true)}
         referrerPolicy="no-referrer"
         {...props}
@@ -621,6 +616,7 @@ export default function Portfolio() {
               src={ARCHIVE_IMAGES[0].url} 
               alt="Hero" 
               fill 
+              priority={true}
               className="object-cover grayscale group-hover:grayscale-0 opacity-40"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0404] via-transparent to-transparent"></div>
