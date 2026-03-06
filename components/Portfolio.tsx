@@ -446,8 +446,24 @@ export default function Portfolio() {
   const [randomProject, setRandomProject] = useState(() => PROJECTS[Math.floor(Math.random() * PROJECTS.length)]);
   const [downloadState, setDownloadState] = useState<'idle' | 'loading' | 'success'>('idle');
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
+  const langMenuRef = useRef<HTMLDivElement>(null);
   const [showAll, setShowAll] = useState(false);
   const [archiveCount, setArchiveCount] = useState(4);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (langMenuRef.current && !langMenuRef.current.contains(event.target as Node)) {
+        setIsLangMenuOpen(false);
+      }
+    };
+
+    if (isLangMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isLangMenuOpen]);
   const [searchQuery, setSearchQuery] = useState('');
 
   const openProject = (project: any) => {
@@ -552,7 +568,7 @@ export default function Portfolio() {
           <MessageSquare size={16} />
           {t.footer.talk}
         </button>
-        <div className="relative">
+        <div className="relative" ref={langMenuRef}>
           <button 
             onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
             className="bg-black/40 backdrop-blur-xl border border-primary/20 rounded-full px-4 py-2 flex items-center gap-2 text-xs font-bold tracking-widest hover:border-primary transition-colors cursor-pointer"
