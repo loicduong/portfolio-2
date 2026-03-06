@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useMotionValue, useSpring } from 'motion/react';
+import { motion, AnimatePresence, useMotionValue } from 'motion/react';
 import { useParams, useRouter, usePathname } from 'next/navigation';
 import { 
   ArrowRight, 
@@ -392,11 +392,6 @@ export default function Portfolio() {
   const cursorXInner = useMotionValue(-100);
   const cursorYInner = useMotionValue(-100);
   
-  const cursorXSpring = useSpring(cursorX, { damping: 25, stiffness: 700 });
-  const cursorYSpring = useSpring(cursorY, { damping: 25, stiffness: 700 });
-  const cursorXInnerSpring = useSpring(cursorXInner, { damping: 40, stiffness: 1000 });
-  const cursorYInnerSpring = useSpring(cursorYInner, { damping: 40, stiffness: 1000 });
-
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX - 16);
@@ -566,8 +561,8 @@ export default function Portfolio() {
       <motion.div
         className="fixed top-0 left-0 w-8 h-8 rounded-full border-2 border-primary pointer-events-none z-[9999] mix-blend-difference hidden md:block"
         style={{
-          x: cursorXSpring,
-          y: cursorYSpring,
+          x: cursorX,
+          y: cursorY,
         }}
         animate={{
           scale: isHovering ? 1.5 : 1,
@@ -578,8 +573,8 @@ export default function Portfolio() {
       <motion.div
         className="fixed top-0 left-0 w-2 h-2 bg-primary rounded-full pointer-events-none z-[9999] mix-blend-difference hidden md:block"
         style={{
-          x: cursorXInnerSpring,
-          y: cursorYInnerSpring,
+          x: cursorXInner,
+          y: cursorYInner,
         }}
         animate={{
           scale: isHovering ? 0 : 1,
