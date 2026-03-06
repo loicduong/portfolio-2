@@ -733,9 +733,6 @@ export default function Portfolio() {
               {t.projects.subtitle}
             </p>
           </div>
-          <p className="text-accent-gold text-left md:text-right uppercase tracking-[0.3em] font-bold text-sm leading-relaxed">
-            {t.projects.selected} <br/> (Vol. 01 — 24)
-          </p>
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-16">
