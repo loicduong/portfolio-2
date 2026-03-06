@@ -980,13 +980,6 @@ export default function Portfolio() {
         <div className="px-6 md:px-12 mb-20 flex flex-col md:flex-row justify-between items-end gap-12">
           <div>
             <h3 className="text-6xl md:text-9xl font-black italic mb-8 uppercase">{t.archive.title}</h3>
-            <div className="flex flex-nowrap overflow-x-auto no-scrollbar gap-4 pb-2">
-              {['ALL', 'NATURE', 'TECH', 'STREET'].map(f => (
-                <button key={f} className={`whitespace-nowrap px-8 py-3 font-bold rounded-full text-xs tracking-widest uppercase transition-all cursor-pointer ${f === 'ALL' ? 'bg-primary text-white' : 'bg-white/5 hover:bg-white/10 text-zinc-400'}`}>
-                  {f}
-                </button>
-              ))}
-            </div>
           </div>
           <p className="text-zinc-400 font-mono text-sm max-w-xs text-right hidden md:block leading-relaxed">
             {t.archive.subtitle}
