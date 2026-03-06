@@ -834,25 +834,14 @@ export default function Portfolio() {
               
               {[
                 {
-                  year: 'May 2022 - Present',
+                  year: 'Apr 2021 - Present',
                   role: lang === 'VN' ? 'LẬP TRÌNH VIÊN FRONTEND WEB' : lang === 'JP' ? 'フロントエンドウェブ開発者' : 'FRONTEND WEB DEVELOPER',
                   company: 'Teanis Technologies',
                   desc: lang === 'VN' 
-                    ? 'Quy mô nhóm: 10+. Kỹ năng: Vue.js, SQL và hơn 40 kỹ năng khác.' 
+                    ? 'Quy mô nhóm: 10+. Kỹ năng: Vue.js, SQL, ESLint và hơn 40 kỹ năng khác.' 
                     : lang === 'JP' 
-                    ? 'チームサイズ：10+。スキル：Vue.js、SQL、その他40以上のスキル。' 
-                    : 'Team size: 10+. Skills: Vue.js, SQL and +40 skills.',
-                  icon: <Layers size={16} />
-                },
-                {
-                  year: 'Apr 2021 - Apr 2022',
-                  role: lang === 'VN' ? 'LẬP TRÌNH VIÊN FRONTEND WEB (FRESHER)' : lang === 'JP' ? '新人フロントエンドウェブ開発者' : 'FRESHER FRONTEND WEB DEVELOPER',
-                  company: 'Teanis Technologies',
-                  desc: lang === 'VN' 
-                    ? 'Quy mô nhóm: 10+. Kỹ năng: Vue.js, ESLint và hơn 10 kỹ năng khác.' 
-                    : lang === 'JP' 
-                    ? 'チームサイズ：10+。スキル：Vue.js、ESLint、その他10以上のスキル。' 
-                    : 'Team size: 10+. Skills: Vue.js, ESLint and +10 skills.',
+                    ? 'チームサイズ：10+。スキル：Vue.js、SQL、ESLint、その他40以上のスキル。' 
+                    : 'Team size: 10+. Skills: Vue.js, SQL, ESLint and +40 skills.',
                   icon: <Layers size={16} />
                 },
                 {
@@ -867,25 +856,14 @@ export default function Portfolio() {
                   icon: <History size={16} />
                 },
                 {
-                  year: 'Jul 2019 - Aug 2020',
+                  year: 'Jun 2019 - Aug 2020',
                   role: lang === 'VN' ? 'KỸ SƯ PHẦN MỀM' : lang === 'JP' ? 'ソフトウェアエンジニア' : 'SOFTWARE ENGINEER',
                   company: 'DEC Engineering',
                   desc: lang === 'VN' 
-                    ? 'Quy mô nhóm: 9. Kỹ năng: Microsoft SQL Server, SQL và hơn 9 kỹ năng khác.' 
+                    ? 'Quy mô nhóm: 9. Kỹ năng: Microsoft SQL Server, SQL, Visual Basic .NET (VB.NET) và hơn 9 kỹ năng khác.' 
                     : lang === 'JP' 
-                    ? 'チームサイズ：9。スキル：Microsoft SQL Server、SQL、その他9以上のスキル。' 
-                    : 'Team size: 9. Skills: Microsoft SQL Server, SQL and +9 skills.',
-                  icon: <Zap size={16} />
-                },
-                {
-                  year: 'Jun 2019 - Aug 2019',
-                  role: lang === 'VN' ? 'THỰC TẬP SINH KỸ SƯ PHẦN MỀM' : lang === 'JP' ? 'ソフトウェアエンジニアインターン' : 'SOFTWARE ENGINEER INTERN',
-                  company: 'DEC Engineering',
-                  desc: lang === 'VN' 
-                    ? 'Quy mô nhóm: 6. Kỹ năng: Microsoft SQL Server, Visual Basic .NET (VB.NET) và hơn 4 kỹ năng khác.' 
-                    : lang === 'JP' 
-                    ? 'チームサイズ：6。スキル：Microsoft SQL Server、Visual Basic .NET (VB.NET)、その他4以上のスキル。' 
-                    : 'Team size: 6. Skills: Microsoft SQL Server, Visual Basic .NET (VB.NET) and +4 skills.',
+                    ? 'チームサイズ：9。スキル：Microsoft SQL Server、SQL、Visual Basic .NET (VB.NET)、その他9以上のスキル。' 
+                    : 'Team size: 9. Skills: Microsoft SQL Server, SQL, Visual Basic .NET (VB.NET) and +9 skills.',
                   icon: <Zap size={16} />
                 }
               ].map((item, i) => (
