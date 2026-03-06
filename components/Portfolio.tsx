@@ -25,7 +25,9 @@ import {
   Check,
   Search,
   MessageSquare,
-  Globe
+  Globe,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import Image from 'next/image';
 import en from '../app/dictionaries/en.json';
@@ -478,6 +480,26 @@ export default function Portfolio() {
     setInternalSlug(null);
   };
 
+  const handlePrevProject = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const currentIndex = PROJECTS.findIndex(p => p.slug === internalSlug);
+    if (currentIndex > 0) {
+      openProject(PROJECTS[currentIndex - 1]);
+    } else {
+      openProject(PROJECTS[PROJECTS.length - 1]);
+    }
+  };
+
+  const handleNextProject = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const currentIndex = PROJECTS.findIndex(p => p.slug === internalSlug);
+    if (currentIndex < PROJECTS.length - 1) {
+      openProject(PROJECTS[currentIndex + 1]);
+    } else {
+      openProject(PROJECTS[0]);
+    }
+  };
+
   const openArchive = (image: any) => {
     const newPath = `/${lang.toLowerCase()}/archive/${image.id}`;
     window.history.pushState({ archiveId: image.id }, '', newPath);
@@ -488,6 +510,26 @@ export default function Portfolio() {
     const newPath = `/${lang.toLowerCase()}`;
     window.history.pushState(null, '', newPath);
     setInternalArchiveId(null);
+  };
+
+  const handlePrevArchive = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const currentIndex = ARCHIVE_IMAGES.findIndex(img => img.id === internalArchiveId);
+    if (currentIndex > 0) {
+      openArchive(ARCHIVE_IMAGES[currentIndex - 1]);
+    } else {
+      openArchive(ARCHIVE_IMAGES[ARCHIVE_IMAGES.length - 1]);
+    }
+  };
+
+  const handleNextArchive = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const currentIndex = ARCHIVE_IMAGES.findIndex(img => img.id === internalArchiveId);
+    if (currentIndex < ARCHIVE_IMAGES.length - 1) {
+      openArchive(ARCHIVE_IMAGES[currentIndex + 1]);
+    } else {
+      openArchive(ARCHIVE_IMAGES[0]);
+    }
   };
 
   const t = TRANSLATIONS[lang];
@@ -1148,6 +1190,23 @@ export default function Portfolio() {
                 <p className="text-xl text-zinc-400 font-light leading-relaxed">
                   {(selectedArchiveImage.description as any)[lang]}
                 </p>
+
+                <div className="flex justify-between items-center mt-8 pt-6 border-t border-zinc-800/50">
+                  <button 
+                    onClick={handlePrevArchive} 
+                    className="flex items-center gap-2 text-zinc-400 hover:text-primary transition-colors cursor-pointer group"
+                  >
+                    <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+                    <span className="text-sm font-bold uppercase tracking-wider">Prev</span>
+                  </button>
+                  <button 
+                    onClick={handleNextArchive} 
+                    className="flex items-center gap-2 text-zinc-400 hover:text-primary transition-colors cursor-pointer group"
+                  >
+                    <span className="text-sm font-bold uppercase tracking-wider">Next</span>
+                    <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -1226,6 +1285,23 @@ export default function Portfolio() {
                   >
                     {t.projects.source} <Github size={18} />
                   </a>
+                </div>
+
+                <div className="flex justify-between items-center mt-8 pt-6 border-t border-zinc-800/50">
+                  <button 
+                    onClick={handlePrevProject} 
+                    className="flex items-center gap-2 text-zinc-400 hover:text-primary transition-colors cursor-pointer group"
+                  >
+                    <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+                    <span className="text-sm font-bold uppercase tracking-wider">Prev</span>
+                  </button>
+                  <button 
+                    onClick={handleNextProject} 
+                    className="flex items-center gap-2 text-zinc-400 hover:text-primary transition-colors cursor-pointer group"
+                  >
+                    <span className="text-sm font-bold uppercase tracking-wider">Next</span>
+                    <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  </button>
                 </div>
               </div>
             </motion.div>
