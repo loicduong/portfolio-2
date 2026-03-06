@@ -26,6 +26,7 @@ import {
   Search,
   MessageSquare,
   Globe,
+  Briefcase,
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
@@ -1056,6 +1057,7 @@ export default function Portfolio() {
             {[
               { name: 'Github', icon: <Github size={20} />, href: 'https://github.com/loicduong' },
               { name: 'LinkedIn', icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/in/loicduong' },
+              { name: 'Upwork', icon: <Briefcase size={20} />, href: 'https://www.upwork.com/freelancers/~01b8c755abb9d27024?mp_source=share' },
               { name: 'Email', icon: <Mail size={20} />, href: 'mailto:hi@loicduong.dev' },
               { name: 'Phone', icon: <Phone size={20} />, href: 'tel:0842575139' }
             ].map(social => (
