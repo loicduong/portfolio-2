@@ -39,7 +39,7 @@ const SafeImage = ({ src, alt, fill, className, priority, ...props }: any) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
-    <div className="relative w-full h-full overflow-hidden bg-zinc-900/50">
+    <div className={`relative overflow-hidden bg-zinc-900/50 ${fill ? 'w-full h-full' : 'w-full'}`}>
       {!isLoaded && !priority && (
         <div className="absolute inset-0 z-10 animate-shimmer bg-zinc-800/20" />
       )}
@@ -47,6 +47,10 @@ const SafeImage = ({ src, alt, fill, className, priority, ...props }: any) => {
         src={src}
         alt={alt}
         fill={fill}
+        width={fill ? undefined : 1000}
+        height={fill ? undefined : 1000}
+        sizes={fill ? undefined : "100vw"}
+        style={fill ? undefined : { width: '100%', height: 'auto' }}
         priority={priority}
         className={`transition-all duration-700 ease-out ${isLoaded || priority ? 'opacity-100 scale-100' : 'opacity-0 scale-105'} ${className}`}
         onLoad={() => setIsLoaded(true)}
@@ -73,9 +77,7 @@ const PROJECTS = [
       VN: 'Kỹ năng: Chú ý đến chi tiết, Giải quyết vấn đề, Vue.js',
       JP: 'スキル：細部へのこだわり、問題解決、Vue.js'
     },
-    tags: ['VUE.JS', 'PROBLEM SOLVING'],
-    category: 'VUE.JS',
-    image: 'https://picsum.photos/seed/home-renovation/1200/800',
+    image: 'https://raw.githubusercontent.com/loicduong/portfolio-2/refs/heads/develop/public/IMG20260308142425.webp',
     size: 'large',
     demoLink: '#',
     repoLink: '#'
@@ -97,7 +99,7 @@ const PROJECTS = [
     },
     tags: ['VITE', 'VUE.JS', 'NPM'],
     category: 'OPEN SOURCE',
-    image: 'https://picsum.photos/seed/vite-plugin/800/800',
+    image: 'https://raw.githubusercontent.com/loicduong/portfolio-2/refs/heads/develop/public/IMG20260308142425.webp',
     size: 'small',
     demoLink: '#',
     repoLink: '#'
@@ -119,7 +121,7 @@ const PROJECTS = [
     },
     tags: ['EXPRESS.JS', 'TYPESCRIPT', 'NODE.JS'],
     category: 'NODE.JS',
-    image: 'https://picsum.photos/seed/trading-user/800/800',
+    image: 'https://raw.githubusercontent.com/loicduong/portfolio-2/refs/heads/develop/public/IMG20260308142425.webp',
     size: 'small',
     demoLink: '#',
     repoLink: '#'
@@ -141,7 +143,7 @@ const PROJECTS = [
     },
     tags: ['VUE.JS', 'TYPESCRIPT', 'NODE.JS'],
     category: 'VUE.JS',
-    image: 'https://picsum.photos/seed/sugame/800/800',
+    image: 'https://raw.githubusercontent.com/loicduong/portfolio-2/refs/heads/develop/public/IMG20260308142425.webp',
     size: 'small',
     demoLink: '#',
     repoLink: '#'
@@ -163,7 +165,7 @@ const PROJECTS = [
     },
     tags: ['VUE.JS', 'TAILWIND CSS', 'TYPESCRIPT'],
     category: 'VUE.JS',
-    image: 'https://picsum.photos/seed/device-location/1200/800',
+    image: 'https://raw.githubusercontent.com/loicduong/portfolio-2/refs/heads/develop/public/IMG20260308142425.webp',
     size: 'large',
     demoLink: '#',
     repoLink: '#'
@@ -185,7 +187,7 @@ const PROJECTS = [
     },
     tags: ['VUE.JS', 'TYPESCRIPT', 'TAILWIND CSS'],
     category: 'VUE.JS',
-    image: 'https://picsum.photos/seed/patient-management/800/800',
+    image: 'https://raw.githubusercontent.com/loicduong/portfolio-2/refs/heads/develop/public/IMG20260308142425.webp',
     size: 'small',
     demoLink: '#',
     repoLink: '#'
@@ -207,7 +209,7 @@ const PROJECTS = [
     },
     tags: ['VUE.JS', 'TYPESCRIPT', 'TAILWIND CSS'],
     category: 'VUE.JS',
-    image: 'https://picsum.photos/seed/telecom/800/800',
+    image: 'https://raw.githubusercontent.com/loicduong/portfolio-2/refs/heads/develop/public/IMG20260308142425.webp',
     size: 'small',
     demoLink: '#',
     repoLink: '#'
@@ -229,7 +231,7 @@ const PROJECTS = [
     },
     tags: ['VUE.JS', 'LARAVEL', 'PHP'],
     category: 'LARAVEL',
-    image: 'https://picsum.photos/seed/walaclub/800/800',
+    image: 'https://raw.githubusercontent.com/loicduong/portfolio-2/refs/heads/develop/public/IMG20260308142425.webp',
     size: 'small',
     demoLink: '#',
     repoLink: '#'
@@ -251,7 +253,7 @@ const PROJECTS = [
     },
     tags: ['VUE.JS', 'LARAVEL', 'E-COMMERCE'],
     category: 'LARAVEL',
-    image: 'https://picsum.photos/seed/vietnam-wine/1200/800',
+    image: 'https://raw.githubusercontent.com/loicduong/portfolio-2/refs/heads/develop/public/IMG20260308142425.webp',
     size: 'large',
     demoLink: '#',
     repoLink: '#'
@@ -273,7 +275,7 @@ const PROJECTS = [
     },
     tags: ['VUE.JS', 'TYPESCRIPT', 'NODE.JS'],
     category: 'VUE.JS',
-    image: 'https://picsum.photos/seed/yeahfit/800/800',
+    image: 'https://raw.githubusercontent.com/loicduong/portfolio-2/refs/heads/develop/public/IMG20260308142425.webp',
     size: 'small',
     demoLink: '#',
     repoLink: '#'
@@ -295,7 +297,7 @@ const PROJECTS = [
     },
     tags: ['NUXT.JS', 'VUE.JS', 'NODE.JS'],
     category: 'VUE.JS',
-    image: 'https://picsum.photos/seed/camly/800/800',
+    image: 'https://raw.githubusercontent.com/loicduong/portfolio-2/refs/heads/develop/public/IMG20260308142425.webp',
     size: 'small',
     demoLink: '#',
     repoLink: '#'
@@ -317,7 +319,7 @@ const PROJECTS = [
     },
     tags: ['VB.NET', 'SQL SERVER', 'ERP'],
     category: 'DESKTOP APP',
-    image: 'https://picsum.photos/seed/tientien/800/800',
+    image: 'https://raw.githubusercontent.com/loicduong/portfolio-2/refs/heads/develop/public/IMG20260308142425.webp',
     size: 'small',
     demoLink: '#',
     repoLink: '#'
@@ -335,18 +337,20 @@ const TRANSLATIONS: Record<Language, any> = {
 };
 
 const ARCHIVE_IMAGES = [
-  { id: 'arch1', url: 'https://picsum.photos/seed/arch1/600/800', title: { EN: 'Urban Geometry', VN: 'Hình học đô thị', JP: '都市の幾何学' }, description: { EN: 'Exploring the intersecting lines of modern architecture.', VN: 'Khám phá những đường nét giao nhau của kiến trúc hiện đại.', JP: '現代建築の交差する線を探索する。' }, year: 2023 },
-  { id: 'arch2', url: 'https://picsum.photos/seed/arch2/600/600', title: { EN: 'Neon Nights', VN: 'Đêm Neon', JP: 'ネオンの夜' }, description: { EN: 'The vibrant glow of city streets after dark.', VN: 'Ánh sáng rực rỡ của đường phố sau khi trời tối.', JP: '暗くなった後の街の通りの鮮やかな輝き。' }, year: 2022 },
-  { id: 'arch3', url: 'https://picsum.photos/seed/arch3/600/700', title: { EN: 'Minimalist Workspace', VN: 'Không gian làm việc tối giản', JP: 'ミニマリストなワークスペース' }, description: { EN: 'A clean setup for focused creative work.', VN: 'Một góc làm việc gọn gàng để tập trung sáng tạo.', JP: '集中してクリエイティブな作業を行うためのクリーンなセットアップ。' }, year: 2024 },
-  { id: 'arch4', url: 'https://picsum.photos/seed/arch4/600/600', title: { EN: 'Abstract Textures', VN: 'Kết cấu trừu tượng', JP: '抽象的なテクスチャ' }, description: { EN: 'Macro photography of everyday materials.', VN: 'Nhiếp ảnh macro của các vật liệu hàng ngày.', JP: '日常の素材のマクロ撮影。' }, year: 2021 },
-  { id: 'arch5', url: 'https://picsum.photos/seed/arch5/600/800', title: { EN: 'Light & Shadow', VN: 'Ánh sáng & Bóng tối', JP: '光と影' }, description: { EN: 'High contrast study in natural lighting.', VN: 'Nghiên cứu độ tương phản cao trong ánh sáng tự nhiên.', JP: '自然光での高コントラストの研究。' }, year: 2023 },
-  { id: 'arch6', url: 'https://picsum.photos/seed/arch6/600/700', title: { EN: 'Digital Nomads', VN: 'Dân du mục kỹ thuật số', JP: 'デジタルノマド' }, description: { EN: 'Working from anywhere in the world.', VN: 'Làm việc từ bất cứ đâu trên thế giới.', JP: '世界中のどこからでも働く。' }, year: 2022 },
-  { id: 'arch7', url: 'https://picsum.photos/seed/arch7/600/600', title: { EN: 'Code Poetry', VN: 'Thơ ca mã nguồn', JP: 'コードの詩' }, description: { EN: 'The beauty of well-structured algorithms.', VN: 'Vẻ đẹp của các thuật toán được cấu trúc tốt.', JP: 'よく構造化されたアルゴリズムの美しさ。' }, year: 2024 },
-  { id: 'arch8', url: 'https://picsum.photos/seed/arch8/600/800', title: { EN: 'Analog Nostalgia', VN: 'Hoài niệm Analog', JP: 'アナログの郷愁' }, description: { EN: 'Vintage tech meeting modern workflows.', VN: 'Công nghệ cổ điển kết hợp quy trình làm việc hiện đại.', JP: 'ヴィンテージ技術と現代のワークフローの出会い。' }, year: 2021 },
-  { id: 'arch9', url: 'https://picsum.photos/seed/arch9/600/700', title: { EN: 'Future Interfaces', VN: 'Giao diện tương lai', JP: '未来のインターフェース' }, description: { EN: 'Conceptual UI designs for spatial computing.', VN: 'Thiết kế UI khái niệm cho điện toán không gian.', JP: '空間コンピューティングのための概念的なUIデザイン。' }, year: 2024 },
-  { id: 'arch10', url: 'https://picsum.photos/seed/arch10/600/600', title: { EN: 'Coffee Fuel', VN: 'Nhiên liệu cà phê', JP: 'コーヒーの燃料' }, description: { EN: 'The essential ingredient for late-night coding.', VN: 'Thành phần thiết yếu cho những đêm code muộn.', JP: '深夜のコーディングに不可欠な要素。' }, year: 2023 },
-  { id: 'arch11', url: 'https://picsum.photos/seed/arch11/600/800', title: { EN: 'Server Racks', VN: 'Tủ máy chủ', JP: 'サーバーラック' }, description: { EN: 'The physical backbone of the internet.', VN: 'Xương sống vật lý của internet.', JP: 'インターネットの物理的なバックボーン。' }, year: 2022 },
-  { id: 'arch12', url: 'https://picsum.photos/seed/arch12/600/700', title: { EN: 'Creative Chaos', VN: 'Sự hỗn loạn sáng tạo', JP: '創造的な混沌' }, description: { EN: 'The messy process before the polished result.', VN: 'Quá trình lộn xộn trước khi có kết quả hoàn hảo.', JP: '洗練された結果の前の乱雑なプロセス。' }, year: 2021 },
+  { 
+    id: 'arch1', 
+    url: 'https://raw.githubusercontent.com/loicduong/portfolio-2/refs/heads/develop/public/IMG20260308142425.webp', 
+    title: { EN: 'Vung Tau', VN: 'Vũng Tàu', JP: 'ブンタウ' }, 
+    description: { EN: 'A beautiful coastal city in Vietnam.', VN: 'Một thành phố biển xinh đẹp tại Việt Nam.', JP: 'ベトナムの美しい海辺の街。' }, 
+    year: 2026 
+  },
+  { 
+    id: 'arch2', 
+    url: 'https://raw.githubusercontent.com/loicduong/portfolio-2/refs/heads/develop/public/IMG20251005092821.webp', 
+    title: { EN: 'Suoi Giai', VN: 'Suối Giai', JP: 'スオイザイ' }, 
+    description: { EN: 'A scenic spot in Vietnam.', VN: 'Một địa điểm đẹp tại Việt Nam.', JP: 'ベトナムの美しい場所。' }, 
+    year: 2025 
+  }
 ];
 
 export default function Portfolio() {
@@ -708,7 +712,7 @@ export default function Portfolio() {
                         role="button"
                         tabIndex={0}
                         aria-label={`View details for ${randomProject.title}`}
-                        className="relative aspect-video rounded-xl overflow-hidden mb-3 cursor-pointer group/peek focus-visible:outline-2 focus-visible:outline-primary"
+                        className="relative rounded-xl overflow-hidden mb-3 cursor-pointer group/peek focus-visible:outline-2 focus-visible:outline-primary"
                         onClick={() => openProject(randomProject)}
                         onKeyDown={(e) => {
                           if (e.key === 'Enter' || e.key === ' ') {
@@ -717,7 +721,7 @@ export default function Portfolio() {
                           }
                         }}
                       >
-                        <SafeImage src={randomProject.image} alt="" fill className="object-cover transition-transform group-hover/peek:scale-110" />
+                        <SafeImage src={randomProject.image} alt="" fill={false} className="transition-transform group-hover/peek:scale-110" />
                         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/peek:opacity-100 transition-opacity flex items-center justify-center">
                           <Eye className="text-white" size={24} />
                         </div>
@@ -812,7 +816,7 @@ export default function Portfolio() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
           <AnimatePresence mode="popLayout">
             {displayedProjects.map((project, idx) => (
               <motion.div 
@@ -831,20 +835,20 @@ export default function Portfolio() {
                     openProject(project);
                   }
                 }}
-                className={`${project.size === 'large' ? 'md:col-span-8' : 'md:col-span-4'} group relative h-[500px] bg-zinc-900 rounded-2xl overflow-hidden border border-white/10 cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4`}
+                className="group relative bg-zinc-900 rounded-2xl overflow-hidden border border-white/10 cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4 break-inside-avoid mb-6"
               >
                 <SafeImage 
                   src={project.image} 
                   alt={project.title} 
-                  fill 
-                  className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-60"
+                  fill={false} 
+                  className="transition-transform duration-700 group-hover:scale-110 opacity-60"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent p-10 flex flex-col justify-end">
                   <div className="flex items-center gap-2 mb-4">
                     <span className="text-[10px] font-mono text-zinc-400 border border-zinc-700 px-2 py-1 rounded">
                       {new Date(project.date).getFullYear()}
                     </span>
-                    {project.tags.map(tag => (
+                    {project.tags?.map(tag => (
                       <span key={tag} className="text-[8px] px-2 py-1 border border-primary text-primary font-bold tracking-tighter uppercase rounded">
                         {tag}
                       </span>
@@ -1000,7 +1004,7 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 px-4 md:px-12">
+        <div className="columns-2 lg:columns-4 gap-6 px-4 md:px-12 space-y-6">
           <AnimatePresence mode="popLayout">
             {ARCHIVE_IMAGES.slice(0, archiveCount).map((item, i) => (
               <motion.div 
@@ -1010,13 +1014,13 @@ export default function Portfolio() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 key={item.id} 
                 onClick={() => openArchive(item)}
-                className={`rounded-2xl overflow-hidden group relative cursor-pointer ${i % 3 === 0 ? 'aspect-[3/4]' : 'aspect-square'}`}
+                className="rounded-2xl overflow-hidden group relative cursor-pointer break-inside-avoid mb-6"
               >
                 <SafeImage 
                   src={item.url} 
                   alt={(item.title as any)[lang]} 
-                  fill 
-                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
+                  fill={false} 
+                  className="grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
                 />
               </motion.div>
             ))}
@@ -1226,7 +1230,7 @@ export default function Portfolio() {
                   <span className="text-xs font-mono text-zinc-400 border border-zinc-700 px-3 py-1 rounded-full">
                     {new Date(selectedProject.date).getFullYear()}
                   </span>
-                  {selectedProject.tags.map((tag: string) => (
+                  {selectedProject.tags?.map((tag: string) => (
                     <span key={tag} className="text-[10px] px-3 py-1 border border-primary text-primary font-black tracking-widest uppercase rounded-full">
                       {tag}
                     </span>
