@@ -350,6 +350,13 @@ const ARCHIVE_IMAGES = [
     title: { EN: 'Suoi Giai', VN: 'Suối Giai', JP: 'スオイザイ' }, 
     description: { EN: 'A scenic spot in Vietnam.', VN: 'Một địa điểm đẹp tại Việt Nam.', JP: 'ベトナムの美しい場所。' }, 
     year: 2025 
+  },
+  { 
+    id: 'arch3', 
+    url: 'https://raw.githubusercontent.com/loicduong/portfolio-2/blob/develop/public/IMG20250427174854.webp?raw=true', 
+    title: { EN: 'Landmark 81', VN: 'Landmark 81', JP: 'ランドマーク81' }, 
+    description: { EN: 'The tallest building in Vietnam.', VN: 'Tòa nhà cao nhất Việt Nam.', JP: 'ベトナムで一番高いビル。' }, 
+    year: 2025 
   }
 ];
 
