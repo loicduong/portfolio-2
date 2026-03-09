@@ -1025,7 +1025,7 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className="columns-2 lg:columns-4 gap-6 px-4 md:px-12 space-y-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 px-4 md:px-12 items-start">
           <AnimatePresence mode="popLayout">
             {ARCHIVE_IMAGES.slice(0, archiveCount).map((item, i) => (
               <motion.div 
@@ -1035,7 +1035,7 @@ export default function Portfolio() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 key={item.id} 
                 onClick={() => openArchive(item)}
-                className="rounded-2xl overflow-hidden group relative cursor-pointer break-inside-avoid mb-6"
+                className="rounded-2xl overflow-hidden group relative cursor-pointer"
               >
                 <SafeImage 
                   src={item.url} 
