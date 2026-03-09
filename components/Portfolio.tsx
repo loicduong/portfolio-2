@@ -353,9 +353,16 @@ const ARCHIVE_IMAGES = [
   },
   { 
     id: 'arch3', 
-    url: 'https://raw.githubusercontent.com/loicduong/portfolio-2/blob/develop/public/IMG20250427174854.webp?raw=true', 
+    url: 'https://raw.githubusercontent.com/loicduong/portfolio-2/refs/heads/develop/public/IMG20250427174854.webp', 
     title: { EN: 'Landmark 81', VN: 'Landmark 81', JP: 'ランドマーク81' }, 
     description: { EN: 'The tallest building in Vietnam.', VN: 'Tòa nhà cao nhất Việt Nam.', JP: 'ベトナムで一番高いビル。' }, 
+    year: 2025 
+  },
+  { 
+    id: 'arch4', 
+    url: 'https://raw.githubusercontent.com/loicduong/portfolio-2/refs/heads/develop/public/IMG20250405112204.webp', 
+    title: { EN: 'Ba Den Mountain', VN: 'Núi Bà Đen', JP: 'バーデン山' }, 
+    description: { EN: 'A famous mountain in Tay Ninh, Vietnam.', VN: 'Một ngọn núi nổi tiếng ở Tây Ninh, Việt Nam.', JP: 'ベトナムのタイニンにある有名な山。' }, 
     year: 2025 
   }
 ];
