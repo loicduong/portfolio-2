@@ -364,6 +364,13 @@ const ARCHIVE_IMAGES = [
     title: { EN: 'Ba Den Mountain', VN: 'Núi Bà Đen', JP: 'バーデン山' }, 
     description: { EN: 'A famous mountain in Tay Ninh, Vietnam.', VN: 'Một ngọn núi nổi tiếng ở Tây Ninh, Việt Nam.', JP: 'ベトナムのタイニンにある有名な山。' }, 
     year: 2025 
+  },
+  { 
+    id: 'arch5', 
+    url: 'https://raw.githubusercontent.com/loicduong/portfolio-2/refs/heads/develop/public/IMG20250111130943.webp', 
+    title: { EN: 'Tri An Lake', VN: 'Hồ Trị An', JP: 'チアン湖' }, 
+    description: { EN: 'A beautiful lake in Dong Nai, Vietnam.', VN: 'Một hồ nước đẹp ở Đồng Nai, Việt Nam.', JP: 'ベトナムのドンナイにある美しい湖。' }, 
+    year: 2025 
   }
 ];
 
