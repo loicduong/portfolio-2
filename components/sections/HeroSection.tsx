@@ -10,7 +10,7 @@ interface HeroSectionProps {
   setIsHoveringExplore: (hovering: boolean) => void;
   randomProject: any;
   openProject: (project: any) => void;
-  shuffleProject: () => void;
+  shuffleProject: (e: React.MouseEvent) => void;
   handleDownload: () => void;
   downloadState: 'idle' | 'loading' | 'success';
 }
