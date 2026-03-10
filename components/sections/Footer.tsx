@@ -15,7 +15,7 @@ export default function Footer({ t }: FooterProps) {
         </p>
         <button 
           onClick={() => window.open('https://wa.me/84842575139', '_blank')}
-          className="px-16 py-8 bg-primary text-white text-2xl md:text-4xl font-black rounded-full hover:scale-110 transition-transform shadow-[0_0_60px_rgba(242,13,13,0.4)] cursor-pointer"
+          className="px-16 py-8 bg-primary text-white text-2xl md:text-4xl font-black rounded-full hover:scale-110 transition-transform shadow-[0_0_60px_rgba(242,13,13,0.4)] cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
         >
           {t.footer.talk}
         </button>

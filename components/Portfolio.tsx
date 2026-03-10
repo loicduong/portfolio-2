@@ -277,7 +277,7 @@ export default function Portfolio() {
       <header className="fixed top-6 right-6 z-50 flex items-center gap-4">
         <button 
           onClick={() => window.open('https://wa.me/84842575139', '_blank')}
-          className="hidden md:flex items-center gap-2 bg-primary hover:bg-white hover:text-black text-white backdrop-blur-xl border border-primary/50 hover:border-white rounded-full px-6 py-2.5 text-xs font-black tracking-[0.2em] transition-all duration-300 uppercase cursor-pointer shadow-[0_0_20px_rgba(242,13,13,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] hover:scale-105 active:scale-95"
+          className="hidden md:flex items-center gap-2 bg-primary hover:bg-white hover:text-black text-white backdrop-blur-xl border border-primary/50 hover:border-white rounded-full px-6 py-2.5 text-xs font-black tracking-[0.2em] transition-all duration-300 uppercase cursor-pointer shadow-[0_0_20px_rgba(242,13,13,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4"
           aria-label={t.footer.talk}
         >
           <MessageSquare size={16} />
@@ -286,7 +286,7 @@ export default function Portfolio() {
         <div className="relative" ref={langMenuRef}>
           <button 
             onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-            className="bg-black/40 backdrop-blur-xl border border-primary/20 rounded-full px-4 py-2 flex items-center gap-2 text-xs font-bold tracking-widest hover:border-primary transition-colors cursor-pointer"
+            className="bg-black/40 backdrop-blur-xl border border-primary/20 rounded-full px-4 py-2 flex items-center gap-2 text-xs font-bold tracking-widest hover:border-primary transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
             aria-expanded={isLangMenuOpen}
             aria-haspopup="true"
             aria-label="Change language"
@@ -306,7 +306,7 @@ export default function Portfolio() {
                   <button
                     key={l}
                     onClick={() => handleLangChange(l)}
-                    className={`px-4 py-3 text-xs font-bold tracking-widest text-left transition-colors cursor-pointer ${lang === l ? 'bg-primary/20 text-primary' : 'hover:bg-white/10 text-white'}`}
+                    className={`px-4 py-3 text-xs font-bold tracking-widest text-left transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-[-2px] ${lang === l ? 'bg-primary/20 text-primary' : 'hover:bg-white/10 text-white'}`}
                   >
                     {l === 'EN' ? 'ENGLISH' : l === 'VN' ? 'TIẾNG VIỆT' : '日本語'}
                   </button>
@@ -320,10 +320,10 @@ export default function Portfolio() {
       {/* Floating Menu Labels */}
       <nav className="fixed inset-0 pointer-events-none z-40 hidden lg:block" aria-label="Main navigation">
         <div className="relative w-full h-full">
-          <a href="#projects" className="pointer-events-auto absolute top-10 left-10 -rotate-12 hover:scale-110 transition-transform bg-primary px-6 py-2 rounded-full font-bold text-white shadow-xl shadow-primary/20">{t.nav.projects}</a>
-          <a href="#experience" className="pointer-events-auto absolute top-40 right-10 rotate-12 hover:scale-110 transition-transform bg-[#4a0404] border border-primary/30 px-6 py-2 rounded-full font-bold text-white">{t.nav.experience}</a>
-          <a href="#skills" className="pointer-events-auto absolute bottom-40 left-20 rotate-6 hover:scale-110 transition-transform border-2 border-primary px-6 py-2 rounded-full font-bold text-primary bg-black/80 backdrop-blur-md">{t.nav.skills}</a>
-          <a href="#library" className="pointer-events-auto absolute bottom-10 right-20 -rotate-6 hover:scale-110 transition-transform bg-accent-gold/20 text-accent-gold border border-accent-gold/50 px-6 py-2 rounded-full font-bold">{t.nav.library}</a>
+          <a href="#projects" className="pointer-events-auto absolute top-10 left-10 -rotate-12 hover:scale-110 transition-transform bg-primary px-6 py-2 rounded-full font-bold text-white shadow-xl shadow-primary/20 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4">{t.nav.projects}</a>
+          <a href="#experience" className="pointer-events-auto absolute top-40 right-10 rotate-12 hover:scale-110 transition-transform bg-[#4a0404] border border-primary/30 px-6 py-2 rounded-full font-bold text-white focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4">{t.nav.experience}</a>
+          <a href="#skills" className="pointer-events-auto absolute bottom-40 left-20 rotate-6 hover:scale-110 transition-transform border-2 border-primary px-6 py-2 rounded-full font-bold text-primary bg-black/80 backdrop-blur-md focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4">{t.nav.skills}</a>
+          <a href="#library" className="pointer-events-auto absolute bottom-10 right-20 -rotate-6 hover:scale-110 transition-transform bg-accent-gold/20 text-accent-gold border border-accent-gold/50 px-6 py-2 rounded-full font-bold focus-visible:outline-2 focus-visible:outline-accent-gold focus-visible:outline-offset-4">{t.nav.library}</a>
         </div>
       </nav>
 
@@ -376,7 +376,7 @@ export default function Portfolio() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.5, y: 20 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 z-[60] w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(242,13,13,0.4)] hover:scale-110 active:scale-95 transition-transform cursor-pointer"
+            className="fixed bottom-8 right-8 z-[60] w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(242,13,13,0.4)] hover:scale-110 active:scale-95 transition-transform cursor-pointer focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4"
             aria-label="Back to top"
           >
             <ArrowUp size={24} />
@@ -408,7 +408,7 @@ export default function Portfolio() {
               <button 
                 onClick={closeArchive}
                 aria-label="Close modal"
-                className="absolute top-6 right-6 z-10 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary cursor-pointer pointer-events-auto"
+                className="absolute top-6 right-6 z-10 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 cursor-pointer pointer-events-auto"
               >
                 <X size={20} />
               </button>
@@ -438,14 +438,14 @@ export default function Portfolio() {
                 <div className="flex justify-between items-center mt-8 pt-6 border-t border-zinc-800/50">
                   <button 
                     onClick={handlePrevArchive} 
-                    className="flex items-center gap-2 text-zinc-400 hover:text-primary transition-colors cursor-pointer group"
+                    className="flex items-center gap-2 text-zinc-400 hover:text-primary transition-colors cursor-pointer group focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4 rounded p-2"
                   >
                     <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
                     <span className="text-sm font-bold uppercase tracking-wider">Prev</span>
                   </button>
                   <button 
                     onClick={handleNextArchive} 
-                    className="flex items-center gap-2 text-zinc-400 hover:text-primary transition-colors cursor-pointer group"
+                    className="flex items-center gap-2 text-zinc-400 hover:text-primary transition-colors cursor-pointer group focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4 rounded p-2"
                   >
                     <span className="text-sm font-bold uppercase tracking-wider">Next</span>
                     <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -482,7 +482,7 @@ export default function Portfolio() {
               <button 
                 onClick={closeProject}
                 aria-label="Close modal"
-                className="absolute top-6 right-6 z-10 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary cursor-pointer"
+                className="absolute top-6 right-6 z-10 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 cursor-pointer"
               >
                 <X size={20} />
               </button>
@@ -517,7 +517,7 @@ export default function Portfolio() {
                     href={selectedProject.demoLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-primary text-white font-black px-8 py-4 rounded-full flex items-center justify-center gap-2 hover:scale-105 transition-transform"
+                    className="flex-1 bg-primary text-white font-black px-8 py-4 rounded-full flex items-center justify-center gap-2 hover:scale-105 transition-transform focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4"
                   >
                     {t.projects.demo} <ExternalLink size={18} />
                   </a>
@@ -525,7 +525,7 @@ export default function Portfolio() {
                     href={selectedProject.repoLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 border-2 border-primary text-primary font-black px-8 py-4 rounded-full flex items-center justify-center gap-2 hover:bg-primary hover:text-white transition-all"
+                    className="flex-1 border-2 border-primary text-primary font-black px-8 py-4 rounded-full flex items-center justify-center gap-2 hover:bg-primary hover:text-white transition-all focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
                   >
                     {t.projects.source} <Github size={18} />
                   </a>
@@ -534,14 +534,14 @@ export default function Portfolio() {
                 <div className="flex justify-between items-center mt-8 pt-6 border-t border-zinc-800/50">
                   <button 
                     onClick={handlePrevProject} 
-                    className="flex items-center gap-2 text-zinc-400 hover:text-primary transition-colors cursor-pointer group"
+                    className="flex items-center gap-2 text-zinc-400 hover:text-primary transition-colors cursor-pointer group focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4 rounded p-2"
                   >
                     <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
                     <span className="text-sm font-bold uppercase tracking-wider">Prev</span>
                   </button>
                   <button 
                     onClick={handleNextProject} 
-                    className="flex items-center gap-2 text-zinc-400 hover:text-primary transition-colors cursor-pointer group"
+                    className="flex items-center gap-2 text-zinc-400 hover:text-primary transition-colors cursor-pointer group focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4 rounded p-2"
                   >
                     <span className="text-sm font-bold uppercase tracking-wider">Next</span>
                     <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />

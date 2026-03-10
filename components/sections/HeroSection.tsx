@@ -43,7 +43,7 @@ export default function HeroSection({
         <div className="w-full h-full bg-zinc-900 rounded-2xl overflow-hidden relative border border-primary/20">
           <SafeImage 
             src={ARCHIVE_IMAGES[0].url} 
-            alt="Hero" 
+            alt="Hero background" 
             fill 
             priority={true}
             className="object-cover grayscale group-hover:grayscale-0 opacity-40"
@@ -76,7 +76,7 @@ export default function HeroSection({
               <a 
                 href="#projects"
                 onMouseEnter={() => setIsHoveringExplore(true)}
-                className="bg-primary hover:bg-primary/80 text-white font-bold px-8 py-4 rounded-full flex items-center justify-center gap-2 group transition-all relative z-10"
+                className="bg-primary hover:bg-primary/80 text-white font-bold px-8 py-4 rounded-full flex items-center justify-center gap-2 group transition-all relative z-10 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
               >
                 {t.hero.explore}
                 <span className="bg-white/20 px-2 py-0.5 rounded text-[10px]">{PROJECTS.length}</span>
@@ -105,7 +105,7 @@ export default function HeroSection({
                         }
                       }}
                     >
-                      <SafeImage src={randomProject.image} alt="" fill={false} className="transition-transform group-hover/peek:scale-110" />
+                      <SafeImage src={randomProject.image} alt={randomProject.title} fill={false} className="transition-transform group-hover/peek:scale-110" />
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/peek:opacity-100 transition-opacity flex items-center justify-center">
                         <Eye className="text-white" size={24} />
                       </div>
@@ -129,7 +129,7 @@ export default function HeroSection({
             <button 
               onClick={handleDownload}
               disabled={downloadState !== 'idle'}
-              className="border-2 border-accent-gold hover:bg-accent-gold hover:text-black text-accent-gold font-bold px-8 py-4 rounded-full flex items-center justify-center gap-2 transition-all disabled:opacity-50 min-w-[220px] cursor-pointer disabled:cursor-not-allowed"
+              className="border-2 border-accent-gold hover:bg-accent-gold hover:text-black text-accent-gold font-bold px-8 py-4 rounded-full flex items-center justify-center gap-2 transition-all disabled:opacity-50 min-w-[220px] cursor-pointer disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-accent-gold focus-visible:outline-offset-4"
             >
               {downloadState === 'loading' ? (
                 <>

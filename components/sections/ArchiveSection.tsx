@@ -38,8 +38,17 @@ export default function ArchiveSection({
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               key={item.id} 
+              role="button"
+              tabIndex={0}
+              aria-label={`View archive item ${(item.title as any)[lang]}`}
               onClick={() => openArchive(item)}
-              className="rounded-2xl overflow-hidden group relative cursor-pointer aspect-[4/5]"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  openArchive(item);
+                }
+              }}
+              className="rounded-2xl overflow-hidden group relative cursor-pointer aspect-[4/5] focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
             >
               <SafeImage 
                 src={item.url} 
@@ -56,7 +65,7 @@ export default function ArchiveSection({
         <div className="mt-24 flex justify-center">
           <button 
             onClick={() => setArchiveCount(prev => prev + 4)}
-            className="flex flex-col items-center gap-6 group cursor-pointer"
+            className="flex flex-col items-center gap-6 group cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4 rounded-xl p-4"
           >
             <p className="text-primary font-black uppercase tracking-[0.4em] text-xs group-hover:text-white transition-colors">{t.archive.keepCharging}</p>
             <motion.div 

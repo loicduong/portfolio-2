@@ -42,7 +42,7 @@ export default function ProjectsSection({
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-6 py-3 rounded-full text-xs font-bold tracking-[0.2em] uppercase transition-all duration-500 cursor-pointer ${
+              className={`px-6 py-3 rounded-full text-xs font-bold tracking-[0.2em] uppercase transition-all duration-500 cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 ${
                 activeCategory === cat 
                   ? 'bg-primary text-white shadow-[0_0_20px_rgba(242,13,13,0.4)] scale-105' 
                   : 'bg-zinc-900 text-zinc-400 hover:bg-zinc-800 hover:text-white'
@@ -103,7 +103,7 @@ export default function ProjectsSection({
       <div className="mt-20 flex justify-center">
         <button 
           onClick={() => setShowAll(!showAll)}
-          className="group relative px-12 py-6 bg-transparent overflow-hidden rounded-full border border-primary/50 text-primary font-black uppercase tracking-widest hover:text-white transition-colors duration-500 cursor-pointer"
+          className="group relative px-12 py-6 bg-transparent overflow-hidden rounded-full border border-primary/50 text-primary font-black uppercase tracking-widest hover:text-white transition-colors duration-500 cursor-pointer focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4"
         >
           <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
           <span className="relative z-10 flex items-center gap-3">
